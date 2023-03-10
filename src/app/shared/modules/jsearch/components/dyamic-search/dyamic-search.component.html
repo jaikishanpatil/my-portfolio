@@ -1,0 +1,27 @@
+<div
+  class="d-flex searchBorder"
+  [class.searchActive]="insInputShown || input.value.length > 0"
+>
+  <div class="m-auto d-flex align-item-center">
+    <input
+      [placeholder]="title + ' ...'"
+      #input
+      class="form-control ml-0"
+      [class.hidden]="!insInputShown && input.value.length === 0"
+      (blur)="hideInput()"
+      (input)="onInput(input.value)"
+      [(ngModel)]="searchKey"
+    />
+    <a
+      class="d-inline-block"
+      title="Search..."
+      container="body"
+      (click)="input.value = ''; showInput(); onInput(input.value)"
+    >
+      <span *ngIf="!insInputShown" class="fa fa-search w3-text-blue w3-large">
+      </span>
+      <span *ngIf="insInputShown" class="fa fa-close w3-text-red w3-large">
+      </span>
+    </a>
+  </div>
+</div>

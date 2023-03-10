@@ -1,0 +1,41 @@
+input {
+  border: 0 !important;
+  outline: none;
+  font-size: 14px;
+  width: 10rem;
+  transition: width 0.2s ease;
+  background-color: transparent;
+  padding: 0;
+
+  &:focus {
+    box-shadow: none !important;
+  }
+  &.hidden {
+    width: 0;
+    margin: 0;
+  }
+}
+
+a {
+  height: 24px;
+  width: 24px;
+  display: flex !important;
+  border-radius: 50%;
+  text-decoration: none;
+}
+span {
+  margin: auto;
+  margin-top: 3px;
+  margin-right: 4px;
+}
+
+.searchBorder {
+  border: 1px solid transparent;
+}
+.searchActive {
+  background-color: #fff;
+  padding: 2px 1px;
+  padding-left: 15px;
+  border-radius: 30px;
+  border: 1px solid #acacac;
+}
