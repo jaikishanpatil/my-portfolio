@@ -8,19 +8,27 @@
       #input
       class="form-control ml-0"
       [class.hidden]="!insInputShown && input.value.length === 0"
-      (blur)="hideInput()"
+      (blur)="hideInput(); insInputShown = false"
       (input)="onInput(input.value)"
       [(ngModel)]="searchKey"
     />
-    <a
-      class="d-inline-block"
-      title="Search..."
-      container="body"
-      (click)="input.value = ''; showInput(); onInput(input.value)"
-    >
-      <span *ngIf="!insInputShown" class="fa fa-search w3-text-blue w3-large">
+    <a class="d-inline-block" title="Search..." container="body">
+      <span
+        *ngIf="!insInputShown"
+        class="fa fa-search w3-text-blue w3-large"
+        (click)="input.value = ''; showInput(); onInput(input.value)"
+      >
       </span>
-      <span *ngIf="insInputShown" class="fa fa-close w3-text-red w3-large">
+      <span
+        *ngIf="insInputShown"
+        class="fa fa-close w3-text-red w3-large"
+        (click)="
+          input.value = '';
+          hideInput();
+          onInput(input.value);
+          insInputShown = false
+        "
+      >
       </span>
     </a>
   </div>

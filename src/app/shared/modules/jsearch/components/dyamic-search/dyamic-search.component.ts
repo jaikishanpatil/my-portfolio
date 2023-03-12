@@ -36,9 +36,12 @@ export class DyamicSearchComponent implements OnInit {
     this.input && this.input.nativeElement.focus();
   }
   hideInput() {
-    this.insInputShown = false;
+    this.searchKey = '';
+    this.input.value = '';
+    this.value = '';
   }
-  onInput(val: any) {
+
+  onInput(val: string) {
     if (val !== this.value) {
       this.value = val;
       this.change.emit(val);

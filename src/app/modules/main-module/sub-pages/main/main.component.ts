@@ -10,8 +10,10 @@ export class MainComponent implements OnInit {
   text: string = '';
   ngOnInit(): void {}
 
-  onChange(event: any) {
-    this.text = event;
-    console.log(event);
+  onChange(event: string) {
+    if (event.length) {
+      this.text = event;
+      console.log(event);
+    }
   }
 }
