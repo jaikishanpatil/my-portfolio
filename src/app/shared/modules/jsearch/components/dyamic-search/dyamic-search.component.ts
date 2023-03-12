@@ -17,7 +17,7 @@ export class DyamicSearchComponent implements OnInit {
   //Declaration Part
   @Output() change = new EventEmitter<any>();
   @Input() insInputShown: boolean = false;
-  @Input() title: string = 'Search';
+  @Input() placeholder: string = 'Search';
   @ViewChild('input', { static: true }) input: ElementRef | any;
   searchKey: any;
   value: any;

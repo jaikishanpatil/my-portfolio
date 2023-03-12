@@ -39,3 +39,11 @@ span {
   border-radius: 30px;
   border: 1px solid #acacac;
 }
+
+.icon {
+  transition: 0.4s;
+}
+
+.icon:hover {
+  transform: rotate(360deg) scale(0.8);
+}
