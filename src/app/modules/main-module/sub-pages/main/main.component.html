@@ -4,7 +4,19 @@
   <p>{{ text }}</p>
 </div>
 
-<div class="container">
+<!-- <div class="container">
   <app-dynamic-search-second></app-dynamic-search-second>
+</div> -->
+
+<div class="container">
+  <p class="text-center text-danger">Angular Dynamic Table</p>
+  <app-dynamic-table [columns]="columns" [data]="data" [totalItems]="data.length"></app-dynamic-table>
 </div>
+
+<ng-template #nameColumnTemplate let-row let-rowIndex="rowIndex" let-column="column" >
+  <span class="text-danger">{{row.name}}</span> 
+</ng-template>
+<ng-template #phoneColumnTemplate let-row let-rowIndex="rowIndex" let-column="column">
+  {{row.phone}}
+</ng-template>
 <!-- <app-footer></app-footer> -->

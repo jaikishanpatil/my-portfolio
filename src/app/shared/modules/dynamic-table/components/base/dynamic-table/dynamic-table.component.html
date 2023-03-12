@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="table-wrapper">
+        <table class="table">
+          <thead>
+            <tr>
+              <th *ngFor="let column of columns" [hidden]="!column.visible">{{column.label}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr (click)="onClick($event,row,i)" *ngFor="let row of pagedData;let i=index">
+              <ng-container *ngFor="let column of columns;let rowIndex=index">
+                <td *ngIf="column.visible && column.templateRef" class="cell">
+                  <ng-container *ngTemplateOutlet="getColumnTemplate(column); context: {$implicit: row,rowIndex:rowIndex,column:column}"></ng-container>
+                </td>
+                <td *ngIf="column.visible && !column.templateRef" class="cell">
+                    {{row[column.key]}}
+                  </td>
+              </ng-container>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <div class="pagination ">
+      <a *ngFor="let page of pages" [class.active]="currentPage === page" (click)="setCurrentPage(page)">{{page}}</a>
+    </div>
+      
+      <ng-template #defaultTemplate let-row let-rowIndex="rowIndex" let-column="column" >
+        {{ row }}
+      </ng-template>
+      
+</div>
