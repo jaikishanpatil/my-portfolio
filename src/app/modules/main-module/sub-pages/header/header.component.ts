@@ -17,6 +17,6 @@ export class HeaderComponent implements OnInit {
 
   clickMe() {
     this.path = this.router.url;
-    this.router.navigate([`main`]);
+    this.router.navigate([`test`]);
   }
 }

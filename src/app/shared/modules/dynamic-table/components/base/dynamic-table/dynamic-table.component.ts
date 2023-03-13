@@ -38,7 +38,6 @@ export class DynamicTableComponent implements OnInit {
   }
 
   onClick(event:any,row:any,index:number){
-    console.log("Event",event)
     console.log("ROW",row)
     console.log("Index",index)
   }

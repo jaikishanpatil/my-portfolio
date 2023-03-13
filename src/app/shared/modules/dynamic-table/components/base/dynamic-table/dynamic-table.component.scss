@@ -20,6 +20,7 @@
   border: 1px solid #ccc;
   padding: 8px;
   text-align: left;
+  cursor: pointer;
 }
 
 .table thead {
@@ -47,7 +48,7 @@
   text-align: center;
   cursor: pointer;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .pagination a {
