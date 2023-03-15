@@ -4,15 +4,16 @@
 }
 
 .table {
+  overflow: auto;
   border-collapse: collapse;
   width: 100%;
   table-layout: fixed;
 }
-.table th{
-    position: -webkit-sticky !important;
-    position: sticky !important;
-    top: 0;
-    z-index: 3;
+.table th {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0;
+  z-index: 3;
 }
 
 .table th,
@@ -22,9 +23,25 @@
   text-align: left;
   cursor: pointer;
 }
+thead tr th{
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+tbody tr td{
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+tbody tr td:hover{
+  overflow: visible;
+}
 
 .table thead {
   background-color: #f2f2f2;
+}
+.table tbody tr td {
+  text-overflow: ellipsis;
 }
 
 .table tbody tr:hover {
@@ -48,7 +65,7 @@
   text-align: center;
   cursor: pointer;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .pagination a {
@@ -66,4 +83,41 @@
   color: #fff;
 }
 
+.table-head {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 8px 2px;
+}
 
+.totalPage {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-items: center;
+  margin-left: 1vh;
+}
+.row-dropdown {
+  outline: none;
+  border: none;
+  width: 4rem;
+}
+.select-options {
+  cursor: pointer;
+  width: 4rem;
+  margin: 0px;
+  padding: 2px;
+  outline: none;
+  left: 2px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-12px, 0px);
+  border-radius: 10px;
+}
+
+.page-container{
+  max-width: 960px;
+  margin: 2px;
+}

@@ -8,7 +8,6 @@
       #input
       class="form-control ml-0"
       [class.hidden]="!insInputShown && input.value.length === 0"
-      (blur)="hideInput(); insInputShown = false"
       (input)="onInput(input.value)"
       [(ngModel)]="searchKey"
     />

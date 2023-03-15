@@ -12,7 +12,8 @@
 <!-- ################   Test for Dynamic Table Module   ##################-->
 <div class="container">
   <p class="text-center text-danger">Angular Dynamic Table</p>
-  <app-dynamic-table [columns]="columns" [data]="data" [totalItems]="data.length"></app-dynamic-table>
+  <app-dynamic-table [columns]="columns" [data]="data" [totalItems]="data.length"
+  (onSearchChange)="onSearchTable($event)" (onClickChange)="onTableRowClick($event)"></app-dynamic-table>
 </div>
 
 <ng-template #nameColumnTemplate let-row let-rowIndex="rowIndex" let-column="column" >

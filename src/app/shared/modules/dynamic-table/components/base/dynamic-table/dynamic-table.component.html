@@ -1,4 +1,7 @@
 <div class="container">
+  <div class="table-head">
+    <app-dyamic-search [placeholder]="'Search In Table'" (change)="onSearch($event)"></app-dyamic-search>
+  </div>
     <div class="table-wrapper">
         <table class="table">
           <thead>
@@ -9,7 +12,7 @@
           <tbody>
             <tr (click)="onClick($event,row,i)" *ngFor="let row of pagedData;let i=index">
               <ng-container *ngFor="let column of columns;let rowIndex=index">
-                <td *ngIf="column.visible && column.templateRef" class="cell">
+                <td *ngIf="column.visible && column.templateRef" class="cell text-wrap">
                   <ng-container *ngTemplateOutlet="getColumnTemplate(column); context: {$implicit: row,rowIndex:rowIndex,column:column}"></ng-container>
                 </td>
                 <td *ngIf="column.visible && !column.templateRef" class="cell">
@@ -21,7 +24,17 @@
         </table>
     </div>
     <div class="pagination ">
-      <a *ngFor="let page of pages" [class.active]="currentPage === page" (click)="setCurrentPage(page)">{{page}}</a>
+      <div class="totalPage">
+        <span>Rows per page</span>
+        <div class="row-dropdown form-control">
+          <select [(ngModel)]="itemsPerPage" (ngModelChange)="itemsPerPageChange($event)" class="select-options">
+            <option *ngFor="let rpage of itemsPerPageRow" [value]="rpage"> {{rpage}} </option>
+          </select>
+        </div>
+      </div>
+      <div class="pageCount">
+        <a *ngFor="let page of pages" [class.active]="currentPage === page" (click)="setCurrentPage(page)">{{page}}</a>
+      </div>
     </div>
       
       <ng-template #defaultTemplate let-row let-rowIndex="rowIndex" let-column="column" >

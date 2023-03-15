@@ -11,6 +11,7 @@ export class TestComponent implements OnInit {
   text: string = '';
   columns: any | undefined;
   data: any[] = [];
+  searchData:any
 
   @ViewChild('nameColumnTemplate',{static:true}) nameColumnTemplate: TemplateRef<any> | any;
   @ViewChild('emailColumnTemplate',{static:true}) emailColumnTemplate: TemplateRef<any> | any;
@@ -81,9 +82,10 @@ export class TestComponent implements OnInit {
       {
         name:'sdasds',
         email:'jaikishan@gmail.com',
-        phone:'8788642935'
+        phone:'12457'
       },
     ]
+    this.searchData = this.data;
   }
 
   onChange(event: string) {
@@ -91,6 +93,19 @@ export class TestComponent implements OnInit {
       this.text = event;
       console.log(event);
     }
+  }
+
+  onSearchTable(event:any){
+    if(event){
+      this.data=this.searchData.filter((x: any)=>{
+        return x.name.toLowerCase().includes(event.toLowerCase()) || x.phone.toLowerCase().includes(event.toLowerCase())
+      })
+    }else{
+      this.data=this.searchData
+    }
+  }
+  onTableRowClick(event:any){
+    console.log(event)
   }
 
 }

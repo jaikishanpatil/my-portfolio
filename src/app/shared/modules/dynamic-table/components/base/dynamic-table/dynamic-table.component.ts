@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges, TemplateRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-dynamic-table',
@@ -8,17 +8,24 @@ import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core'
 export class DynamicTableComponent implements OnInit {
   @Input() columns: any[] = [];
   @Input() data: any[] = [];
+  @Input() itemsPerPageRow:any=[5,10,15,20,25]
   @Input() itemsPerPage: number = 5;
   @Input() totalItems: number = 0;
   @Input() currentPage: number = 1;
+  @Output() onSearchChange= new EventEmitter<any>();
+  @Output() onClickChange= new EventEmitter<any>();
   @ViewChild('defaultTemplate') defaultTemplate!: TemplateRef<any>;
 
   pagedData: any[] | undefined;
   pages: number[] | undefined;
-
   constructor() {}
 
   ngOnInit(): void {
+    this.updatePages();
+    this.updatePagedData();
+  }
+
+  ngOnChanges(): void {
     this.updatePages();
     this.updatePagedData();
   }
@@ -27,6 +34,10 @@ export class DynamicTableComponent implements OnInit {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
     this.pagedData = this.data.slice(startIndex, endIndex);
+  }
+
+  onSearch(event:any){
+    this.onSearchChange.emit(event);
   }
 
   updatePages() {
@@ -38,8 +49,12 @@ export class DynamicTableComponent implements OnInit {
   }
 
   onClick(event:any,row:any,index:number){
-    console.log("ROW",row)
-    console.log("Index",index)
+    let rowData={
+      event:event,
+      row:row,
+      index:index
+    }
+    this.onClickChange.emit(rowData);
   }
 
   setCurrentPage(page: number) {
@@ -53,5 +68,11 @@ export class DynamicTableComponent implements OnInit {
 
   getColumnTemplate(column: any): TemplateRef<any> {
     return column.templateRef || this.getDefaultTemplate();
+  }
+
+  itemsPerPageChange(event:any){
+    this.itemsPerPage=event;
+    this.updatePages();
+    this.updatePagedData(); 
   }
 }
