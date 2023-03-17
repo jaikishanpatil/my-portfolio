@@ -1,6 +1,7 @@
 .table-wrapper {
   overflow-x: auto;
   max-height: 300px;
+  border-bottom: 1px solid #ccc;
 }
 
 .table {
@@ -8,6 +9,9 @@
   border-collapse: collapse;
   width: 100%;
   table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+  box-shadow: 2px 2px 2px 2px #ddd;
 }
 .table th {
   position: -webkit-sticky !important;
@@ -36,6 +40,9 @@ tbody tr td{
 tbody tr td:hover{
   overflow: visible;
 }
+table tbody tr{
+  border-radius: 20%;
+}
 
 .table thead {
   background-color: #f2f2f2;
@@ -60,12 +67,19 @@ tbody tr td:hover{
   background-color: #ccc;
   border-radius: 5px;
 }
+.active {
+  background-color: rgba(34,34,34,0.8);
+}
 
 .pagination {
   text-align: center;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
+  margin-top: 20px;
+  border: 1px solid grey;
+  box-shadow: 1px 0.5px 0.5px #4a504a80;
 }
 
 .pagination a {
@@ -120,4 +134,13 @@ tbody tr td:hover{
 .page-container{
   max-width: 960px;
   margin: 2px;
+}
+.pageCount{
+  display: flex;
+  min-width: 21rem;
+  align-items: baseline;
+}
+.paget-text{
+  cursor:auto;
+  padding-right: 10px;
 }

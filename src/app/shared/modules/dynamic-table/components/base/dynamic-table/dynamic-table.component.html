@@ -33,6 +33,9 @@
         </div>
       </div>
       <div class="pageCount">
+        <div class="paget-text">
+          Showing page no. {{currentPage? currentPage:0}} to {{pages?.length? pages?.length:0}} of {{data.length? data.length :0}}
+        </div>
         <a *ngFor="let page of pages" [class.active]="currentPage === page" (click)="setCurrentPage(page)">{{page}}</a>
       </div>
     </div>
