@@ -15,17 +15,10 @@ export class HeaderComponent implements OnInit {
     this.path = this.router.url;
     window.addEventListener('scroll',this.isScrolling)
   }
-  ngOnChanges(): void {
-    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-    //Add '${implements OnChanges}' to the class.
-    const headerel=document.querySelector('.primary-header')
-    let windowpos=window.scrollY>250;
-    headerel?.classList.toggle('active',windowpos)
-  }
 
   isScrolling=()=>{
     const headerel=document.querySelector('.primary-header')
-    let windowpos=window.scrollY>250;
+    let windowpos=window.scrollY>20;
     headerel?.classList.toggle('active',windowpos)
   }
   clickMe() {

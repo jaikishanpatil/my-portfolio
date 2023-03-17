@@ -2,10 +2,11 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 999;
+    z-index: 9999;
     width: 100%;
     transition: background-color 0.5s;
     // background-color: #8682821f;
+    border-bottom: 2px solid rgba(255,255,255,0.05);
 }
 
 .container{
