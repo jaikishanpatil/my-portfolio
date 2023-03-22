@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,22 +6,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  path: string = '';
 
-  constructor(private router: Router) {}
+  isShowMenu:boolean=false
+
+  constructor() {}
 
   ngOnInit(): void {
-    this.path = this.router.url;
-    window.addEventListener('scroll',this.isScrolling)
+  }
+  showMenu(isShowMenu:boolean){
+    this.isShowMenu=isShowMenu;
+  }
+  closeMenu(isShowMenu:boolean){
+    this.isShowMenu=isShowMenu;
   }
 
-  isScrolling=()=>{
-    const headerel=document.querySelector('.primary-header')
-    let windowpos=window.scrollY>20;
-    headerel?.classList.toggle('active',windowpos)
-  }
-  clickMe() {
-    this.path = this.router.url;
-    this.router.navigate([`test`]);
-  }
 }

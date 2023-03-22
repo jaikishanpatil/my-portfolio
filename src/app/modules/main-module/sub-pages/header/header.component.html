@@ -1,4 +1,4 @@
-<header class="primary-header">
+<!-- <header class="primary-header">
   <nav class="navbar container">
     <a href="#" class="logo">LOGO</a>
     <ul class="nav-list">
@@ -22,5 +22,52 @@
       </li>
     </ul>
     <a href="#" class="button">Contact Us</a>
+  </nav>
+</header> -->
+
+<header class="header" id="header">
+  <nav class="nav container">
+    <a href="" class="nav_logo">Jaikishan</a>
+
+    <div class="nav_menu" id="nav-menu" [class.showMenu]="isShowMenu">
+      <ul class="nav_list grid">
+        <li class="nav_item">
+          <a href="#home" class="nav_link" (click)="closeMenu(false)">
+            <i class="uil uil-estate nav_icon"></i> Home
+          </a>
+        </li>
+        <li class="nav_item">
+          <a href="#about" class="nav_link" (click)="closeMenu(false)">
+            <i class="uil uil-user nav_icon"></i> About
+          </a>
+        </li>
+        <li class="nav_item">
+          <a href="#Skills" class="nav_link" (click)="closeMenu(false)">
+            <i class="uil uil-file-alt nav_icon"></i> Skills
+          </a>
+        </li>
+        <li class="nav_item">
+          <a href="#services" class="nav_link" (click)="closeMenu(false)">
+            <i class="uil uil-briefcase nav_icon"></i> Services
+          </a>
+        </li>
+        <li class="nav_item">
+          <a href="#portfolio" class="nav_link" (click)="closeMenu(false)">
+            <i class="uil uil-scenery nav_icon"></i> Portfolio
+          </a>
+        </li>
+        <li class="nav_item">
+          <a href="#contactme" class="nav_link" (click)="closeMenu(false)">
+            <i class="uil uil-message nav_icon"></i> Contactme
+          </a>
+        </li>
+      </ul>
+      <i class="uil uil-times nav_close" id="nav-close" (click)="closeMenu(false)"></i>
+    </div>
+    <div class="nav_btns">
+      <div class="nav_toggle" id="nav-toggel" (click)="showMenu(true)">
+        <i class="uil uil-apps"></i>
+      </div>
+    </div>
   </nav>
 </header>
