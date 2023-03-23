@@ -7,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
   constructor() {}
+  activeAccordion = 'One'
 
   ngOnInit(): void {}
+ 
+  isActive (name: string){
+    return this.activeAccordion === name
+  }
+
+  setActive(name: string){
+    this.activeAccordion = name
+  } 
 }
