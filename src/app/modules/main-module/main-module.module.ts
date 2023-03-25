@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { MainModuleRoutingModule } from './main-module-routing.module';
 import { MainComponent } from './sub-pages/main/main.component';
@@ -22,5 +22,8 @@ import { TestComponent } from './sub-pages/test/test.component';
     NotFoundModule,
     FooterModule
   ],
+  providers:[
+    DatePipe
+  ]
 })
 export class MainModuleModule {}
