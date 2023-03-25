@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+declare function portfolioSwiper():void;
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -10,6 +11,7 @@ export class MainComponent implements OnInit {
   activeAccordion = 'One';
   todaysDate: any = new Date().toLocaleDateString();
   ngOnInit(): void {
+    portfolioSwiper();
     this.qualificationTabs();
     this.serviceTab();
   }
@@ -66,4 +68,20 @@ export class MainComponent implements OnInit {
       });
     });
   }
+
+  // Portfolio Swiper
+  portfolioSwiper(){
+    // let swiper = new Swiper(".portfolio_container", {
+    //   cssMode: true,
+    //   navigation: {
+    //     nextEl: ".swiper-button-next",
+    //     prevEl: ".swiper-button-prev",
+    //   },
+    //   pagination: {
+    //     el: ".swiper-pagination",
+    //   },
+    //   mousewheel: true,
+    //   keyboard: true,
+    // });
+  } 
 }

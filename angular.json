@@ -99,9 +99,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/style/swiper-bundle.min.css"
             ],
             "scripts": [
+              "src/assets/swiper-bundle.min.js",
+              "src/assets/swiper.js"
             ]
           }
         }
