@@ -31,6 +31,7 @@ span {
 
 .searchBorder {
   border: 1px solid transparent;
+  display: flex;
 }
 .searchActive {
   background-color: #fff;
@@ -46,4 +47,24 @@ span {
 
 .icon:hover {
   transform: rotate(360deg) scale(0.8);
+}
+.search-bar{
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-icon-open,.search-icon-close{
+  width: fit-content;
+  border-radius: 50%;
+}
+.search-anchor{
+  display: inline-block;
+  align-items: baseline;
+}
+.search-icon-close{
+  color: red;
+}
+.search-icon-open{
+  color: blue;
 }

@@ -28,9 +28,9 @@ export class MainComponent implements OnInit {
           tabcontent.classList.remove('qualification_active');
         });
         target.classList.add('qualification_active');
-        tab.forEach((tab: any) => {
-          tab.classList.remove('qualification_active');
-        });
+        // tab?.forEach((tab: any) => {
+        //   tab.classList.remove('qualification_active');
+        // });
         tab.classList.add('qualification_active');
       });
     });
