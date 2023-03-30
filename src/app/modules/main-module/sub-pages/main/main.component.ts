@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 declare function portfolioSwiper():void;
+declare function testimonialSwiper():void;
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -12,6 +13,7 @@ export class MainComponent implements OnInit {
   todaysDate: any = new Date().toLocaleDateString();
   ngOnInit(): void {
     portfolioSwiper();
+    testimonialSwiper();
     this.qualificationTabs();
     this.serviceTab();
   }
