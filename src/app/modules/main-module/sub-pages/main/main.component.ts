@@ -119,6 +119,7 @@ export class MainComponent implements OnInit {
       this.email.reset();
       this.project.reset();
       this.message.reset();
+      
     }
   }
 }
