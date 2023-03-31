@@ -10,6 +10,7 @@ import { HeaderModule } from './sub-pages/header/header.module';
 import { NotFoundModule } from './sub-pages/not-found/not-found.module';
 import { FooterModule } from './sub-pages/footer/footer.module';
 import { TestComponent } from './sub-pages/test/test.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [MainComponent, TestComponent],
@@ -20,7 +21,8 @@ import { TestComponent } from './sub-pages/test/test.component';
     DynamicTableModule,
     HeaderModule,
     NotFoundModule,
-    FooterModule
+    FooterModule,
+    ReactiveFormsModule
   ],
   providers:[
     DatePipe
