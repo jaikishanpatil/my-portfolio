@@ -1,23 +1,63 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FORM_MODEL } from '../model/form-base.enum';
 
-declare function portfolioSwiper():void;
-declare function testimonialSwiper():void;
+declare function portfolioSwiper(): void;
+declare function testimonialSwiper(): void;
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-  constructor() {}
+  constructor(private readonly formbuilder: FormBuilder) {}
+
+  //Form content
+  form_models = FORM_MODEL;
+  myForm: FormGroup | any;
+  submitted: boolean = false;
+
+  get name() {
+    return this.myForm.controls[FORM_MODEL.NAME];
+  }
+
+  get email() {
+    return this.myForm.controls[FORM_MODEL.EMAIL];
+  }
+  get project() {
+    return this.myForm.controls[FORM_MODEL.PROJECT];
+  }
+  get message() {
+    return this, this.myForm.controls[FORM_MODEL.MESSAGE];
+  }
+
   activeAccordion = 'One';
   todaysDate: any = new Date().toLocaleDateString();
   ngOnInit(): void {
+    this.initilizeForm();
     portfolioSwiper();
     testimonialSwiper();
     this.qualificationTabs();
     this.serviceTab();
   }
 
+  initilizeForm() {
+    this.myForm = this.formbuilder.group({
+      name: [
+        '',
+        {
+          validators:[Validators.required, Validators.minLength(3),  Validators.maxLength(20)],
+        }
+      ],
+      email: ['',
+      {
+        validators:[Validators.required, Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)],
+      }
+    ],
+      project: ['', Validators.nullValidator],
+      message: ['', Validators.nullValidator],
+    });
+  }
   //Qualifications tabs
   qualificationTabs() {
     const tabs = document.querySelectorAll('[data-target]');
@@ -71,19 +111,15 @@ export class MainComponent implements OnInit {
     });
   }
 
-  // Portfolio Swiper
-  portfolioSwiper(){
-    // let swiper = new Swiper(".portfolio_container", {
-    //   cssMode: true,
-    //   navigation: {
-    //     nextEl: ".swiper-button-next",
-    //     prevEl: ".swiper-button-prev",
-    //   },
-    //   pagination: {
-    //     el: ".swiper-pagination",
-    //   },
-    //   mousewheel: true,
-    //   keyboard: true,
-    // });
-  } 
+  submitForm() {
+    if (this.myForm.valid) {
+      let form = this.myForm;
+      console.log(form.value)
+      this.name.reset();
+      this.email.reset();
+      this.project.reset();
+      this.message.reset();
+    }
+  }
 }
+  
