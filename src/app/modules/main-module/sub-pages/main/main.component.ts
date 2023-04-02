@@ -34,6 +34,7 @@ export class MainComponent implements OnInit {
   activeAccordion = 'One';
   todaysDate: any = new Date().toLocaleDateString();
   ngOnInit(): void {
+    window.addEventListener('scroll',this.showScroll);
     this.initilizeForm();
     portfolioSwiper();
     testimonialSwiper();
@@ -120,6 +121,16 @@ export class MainComponent implements OnInit {
       this.project.reset();
       this.message.reset();
       
+    }
+  }
+
+  // Show scroll
+  showScroll(){
+    const scrollUp=document.getElementById('scroll-up')
+    if(window.scrollY>=560){
+      scrollUp?.classList.add('show-scroll');
+    }else{
+      scrollUp?.classList.remove('show-scroll');
     }
   }
 }
