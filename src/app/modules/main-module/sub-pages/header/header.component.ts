@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-declare function darkLightTheme():void
+// declare function darkLightTheme():void
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    darkLightTheme();
+    this.darkLightTheme();
     window.addEventListener('scroll',this.scrollHeader);
   }
   showMenu(isShowMenu:boolean){
@@ -31,6 +31,32 @@ export class HeaderComponent implements OnInit {
       }else{
         nav?.classList.remove('scroll-header');
       }
+  }
+
+  darkLightTheme() {
+    const themeButton = document.getElementById('theame-button')
+    const darktheme = 'dark-theme'
+    const iconTheme = 'uil-sun'
+  
+    const selectedTheme = localStorage.getItem('selected-theme')
+    const selectedIcon = localStorage.getItem('selected-icon')
+  
+    const getCurrentTheme = () => document.body.classList.contains(darktheme) ? 'dark' : 'light'
+    const getCurrentIcon = () => document.body.classList.contains(iconTheme) ? 'uil-moon' : 'uil-sun'
+  
+    if (selectedTheme && themeButton !== null) {
+      document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darktheme)
+      themeButton.classList[selectedIcon === 'uil-moon' ? 'add' : 'remove'](iconTheme)
+    }
+  
+    if(themeButton){
+      themeButton.addEventListener('click', ()=>{
+        document.body.classList.toggle(darktheme)
+        themeButton.classList.toggle(iconTheme)
+        localStorage.setItem('selected-theme' , getCurrentTheme())
+        localStorage.setItem('selected-icon' , getCurrentIcon())
+      })
+    }
   }
 
 }
