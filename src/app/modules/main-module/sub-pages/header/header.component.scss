@@ -37,7 +37,7 @@
 @media screen and (max-width: 767px) {
   .nav_menu {
     position: fixed;
-    bottom: -214px;
+    bottom: -220px;
     left: 0;
     width: 100%;
     background-color: var(--body-color);
@@ -83,4 +83,18 @@
 .scroll-header{
   background-color: var(--body-color);
   box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
+}
+// button dark light
+.nav_btns{
+  display: flex;
+  align-items: center;
+}
+.change-theame{
+  font-size: 1.25rem;
+  color: var(--title-color);
+  margin-right: var(--mb-1);
+  cursor: pointer;
+}
+.change-theame:hover{
+  color: var(--first-color);
 }

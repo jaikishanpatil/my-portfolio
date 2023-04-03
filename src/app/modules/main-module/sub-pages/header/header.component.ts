@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// declare function scrollHeader():void
+declare function darkLightTheme():void
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -10,10 +10,11 @@ export class HeaderComponent implements OnInit {
   isShowMenu:boolean=false
 
   constructor() {
-    // scrollHeader();
+    
   }
 
   ngOnInit(): void {
+    darkLightTheme();
     window.addEventListener('scroll',this.scrollHeader);
   }
   showMenu(isShowMenu:boolean){
