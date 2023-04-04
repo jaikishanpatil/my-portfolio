@@ -1,20 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
-::-webkit-scrollbar {
-  width: 8px !important;
+::-webkit-scrollbar{
+  width: .60rem !important;
+  background-color: var(--scroll-bar-color);
+  border-radius: .5rem !important;
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: #acbcbe !important;
-  border-radius: 10rem !important;
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  height: 20%;
+::-webkit-scrollbar-thumb{
+  background-color: var(--scroll-thumb-color);
+  border-radius: .5rem;
 }
-
-::-webkit-scrollbar-track {
-  position: absolute;
-}
-
 // Variables
 
 :root {
@@ -32,6 +27,8 @@
   --input-color: hsl(var(--hue-color), 70%, 96%);
   --body-color: hsl(var(--hue-color), 60%, 99%);
   --container-color: #fff;
+  --scroll-bar-color: hsl(var(--hue-color),12%,90%);
+  --scroll-thumb-color: hsl(var(--hue-color),12%,80%);
 
   --body-font: "Poppins", sans-serif;
 
@@ -79,6 +76,8 @@ body.dark-theme {
   --input-color: hsl(var(--hue-color), 29%, 16%);
   --body-color: hsl(var(--hue-color), 28%, 12%);
   --container-color: hsl(var(--hue-color), 29%, 16%);
+  --scroll-bar-color: hsl(var(--hue-color),12%,48%);
+  --scroll-thumb-color: hsl(var(--hue-color),12%,36%);
 }
 
 * {
