@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit {
     const selectedIcon = localStorage.getItem('selected-icon')
   
     const getCurrentTheme = () => document.body.classList.contains(darktheme) ? 'dark' : 'light'
-    const getCurrentIcon = () => document.body.classList.contains(iconTheme) ? 'uil-moon' : 'uil-sun'
+    const getCurrentIcon = () => themeButton?.classList.contains(iconTheme) ? 'uil-moon' : 'uil-sun'
   
     if (selectedTheme && themeButton !== null) {
       document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darktheme)
@@ -57,6 +57,10 @@ export class HeaderComponent implements OnInit {
         localStorage.setItem('selected-icon' , getCurrentIcon())
       })
     }
+  }
+
+  ngOnDestroy(): void {
+    localStorage.clear();
   }
 
 }
