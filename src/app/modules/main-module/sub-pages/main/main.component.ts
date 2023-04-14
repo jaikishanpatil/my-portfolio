@@ -20,7 +20,7 @@ export class MainComponent implements OnInit {
   get name() {
     return this.myForm.controls[FORM_MODEL.NAME];
   }
-
+//
   get email() {
     return this.myForm.controls[FORM_MODEL.EMAIL];
   }
