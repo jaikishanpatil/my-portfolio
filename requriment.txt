@@ -1,0 +1,6 @@
+ICON Library :  icon links : https://iconscout.com/unicons/explore/line
+
+Version used:
+        node 14.17.3           download => install 
+        angular 13.0.0         npm i -g @angular/cli@13.0.0
+        npm 6.14.13             version check

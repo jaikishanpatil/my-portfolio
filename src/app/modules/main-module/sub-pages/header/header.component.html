@@ -1,64 +1,11 @@
-<!-- <header class="primary-header">
-  <nav class="navbar container">
-    <a href="#" class="logo">LOGO</a>
-    <ul class="nav-list">
-      <li>
-        <a href="#" class="nav-link">Home</a>
-      </li>
-      <li>
-        <a href="#" class="nav-link">Services</a>
-      </li>
-      <li>
-        <a href="#" class="nav-link">Testimonials</a>
-      </li>
-      <li>
-        <a href="#" class="nav-link">Pricing</a>
-      </li>
-      <li>
-        <a href="#" class="nav-link">Contact</a>
-      </li>
-      <li>
-        <a href="#" class="nav-link">About us</a>
-      </li>
-    </ul>
-    <a href="#" class="button">Contact Us</a>
-  </nav>
-</header> -->
-
 <header class="header" id="header">
   <nav class="nav container">
-    <a href="" class="nav_logo">Jaikishan</a>
-
+    <a href="" class="nav_logo">{{headerData?.owner_name}}</a>
     <div class="nav_menu" id="nav-menu" [class.showMenu]="isShowMenu">
       <ul class="nav_list grid">
-        <li class="nav_item">
-          <a href="#home" class="nav_link" (click)="closeMenu(false)">
-            <i class="uil uil-estate nav_icon"></i> Home
-          </a>
-        </li>
-        <li class="nav_item">
-          <a href="#about" class="nav_link" (click)="closeMenu(false)">
-            <i class="uil uil-user nav_icon"></i> About
-          </a>
-        </li>
-        <li class="nav_item">
-          <a href="#skills" class="nav_link" (click)="closeMenu(false)">
-            <i class="uil uil-file-alt nav_icon"></i> Skills
-          </a>
-        </li>
-        <li class="nav_item">
-          <a href="#services" class="nav_link" (click)="closeMenu(false)">
-            <i class="uil uil-briefcase nav_icon"></i> Services
-          </a>
-        </li>
-        <li class="nav_item">
-          <a href="#portfolio" class="nav_link" (click)="closeMenu(false)">
-            <i class="uil uil-scenery nav_icon"></i> Portfolio
-          </a>
-        </li>
-        <li class="nav_item">
-          <a href="#contact" class="nav_link" (click)="closeMenu(false)">
-            <i class="uil uil-message nav_icon"></i> Contact Me
+        <li class="nav_item" *ngFor="let item of headerData?.navigation_menu">
+          <a href="#{{item.href}}" class="nav_link" (click)="closeMenu(false)">
+            <i class= "{{item.icon}} nav_icon"></i> {{item.label}}
           </a>
         </li>
       </ul>

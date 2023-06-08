@@ -1,0 +1,296 @@
+{
+    "header":{
+        "owner_name":"Jaikishan Patil",
+        "navigation_menu":[
+            {
+                "label":"Home",
+                "href":"home",
+                "icon":"uil uil-estate"
+            },
+            {
+                "label":"About",
+                "href":"about",
+                "icon":"uil uil-user"
+            },
+            {
+                "label":"Skills",
+                "href":"skills",
+                "icon":"uil uil-file-alt"
+            },
+            {
+                "label":"Services",
+                "href":"services",
+                "icon":"uil uil-briefcase"
+            },
+            {
+                "label":"Portfolio",
+                "href":"portfolio",
+                "icon":"uil uil-scenery"
+            },
+            {
+                "label":"Contact Me",
+                "href":"contact",
+                "icon":"uil uil-message"
+            }
+        ]
+    },
+    "main":{
+        "home":{
+            "social_profile":[
+                {
+                    "icon":"uil uil-linkedin-alt",
+                    "url":"#",
+                    "label":"LinkdIn"
+                },
+                {
+                    "icon":"uil uil-github-alt",
+                    "url":"#",
+                    "label":"Git Hub"
+                },
+                {
+                    "icon":"uil uil-facebook-f",
+                    "url":"#",
+                    "label":"Facebook"
+                },
+                {
+                    "icon":"uil uil-instagram",
+                    "url":"#",
+                    "label":"Instagram"
+                }
+            ],
+            "social_image":"../../../../../assets/images/jaikishan_img1.png",
+            "your_information":{
+                "title":"Hi, Iam Jaikishan",
+                "designation":"Full stack devloper",
+                "description":"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum, nesciunt sit! Commodi dolorem est quod, adipisci quo veniam explicabo corrupti iure tenetur ab necessitatibus"
+            }
+        },
+        "about":{
+            "section_name":"About Me",
+            "Section_subtitle":"My Introduction",
+            "profile_image":"../../../../../assets/images/jaikisha_about_img.png",
+            "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque voluptatem adipisci, eius quos delectus molestiae harum tempore vero rem, magni ducimus, consequuntur dolor a architecto deleniti esse nulla. Architecto, illum?",
+            "info":[
+                {
+                    "experiance_year_number":"01+",
+                    "experiance_year_desc":{
+                        "status":"years",
+                        "status_1":"experience"
+                    }
+                },
+                {
+                    "experiance_year_number":"09+",
+                    "experiance_year_desc":{
+                        "status":"Completed",
+                        "status_1":"projects"
+                    }
+                },
+                {
+                    "experiance_year_number":"01",
+                    "experiance_year_desc":{
+                        "status":"Companies",
+                        "status_1":"Worked"
+                    }
+                }
+            ],
+            "download":{
+                "isDownload":true,
+                "url":"../../../../../assets/pdf/Jaikishan Dhanaji Patil Resume(new).pdf"
+            }
+        },
+        "skills":{
+            "section_name":"Skills",
+            "Section_subtitle":"My Technical Level",
+            "skill_info_left_side":[
+                {
+                    "skill_title":"Frontend Devloper",
+                    "skill_subtitle":"More than 1 years",
+                    "isActive":"One",
+                    "icon":"uil uil-brackets-curly",
+                    "skill_data":[
+                        {
+                            "skill_name":"HTML",
+                            "skill_understand_number":"90%"
+                        },
+                        {
+                            "skill_name":"CSS",
+                            "skill_understand_number":"60%"
+                        },
+                        {
+                            "skill_name":"JavaScript",
+                            "skill_understand_number":"70%"
+                        },
+                        {
+                            "skill_name":"Angular",
+                            "skill_understand_number":"70%"
+                        }
+                    ]
+                },
+                {
+                    "skill_title":"Backend Devloper",
+                    "skill_subtitle":"More than 06 Months",
+                    "isActive":"Two",
+                    "icon":"uil uil-server-network",
+                    "skill_data":[
+                        {
+                            "skill_name":"Java",
+                            "skill_understand_number":"65%"
+                        },
+                        {
+                            "skill_name":"Node Js",
+                            "skill_understand_number":"50%"
+                        },
+                        {
+                            "skill_name":"Express Js",
+                            "skill_understand_number":"50%"
+                        },
+                        {
+                            "skill_name":"MySql",
+                            "skill_understand_number":"60%"
+                        }
+                    ]
+                }
+            ],
+            "skill_info_right_side":[
+                {
+                    "skill_title":"Designer",
+                    "skill_subtitle":"More than 1 years",
+                    "isActive":"Three",
+                    "icon":"uil uil-swatchbook",
+                    "skill_data":[
+                        {
+                            "skill_name":"Figma",
+                            "skill_understand_number":"40%"
+                        },
+                        {
+                            "skill_name":"Sketch",
+                            "skill_understand_number":"40%"
+                        },
+                        {
+                            "skill_name":"Photoshop",
+                            "skill_understand_number":"50%"
+                        }
+                    ]
+                }
+            ]
+        },
+        "qualification":{
+            "section_name":"Qualifications",
+            "Section_subtitle":"My Persnol journy",
+            "qualification_tab_content":{
+                "education":{
+                    "id":"education",
+                    "data":[
+                        {
+                            "qualification_title":"Computer Engineering",
+                            "qualification_subtitle":"Mumbai University",
+                            "qualification_year":"2019 - 2022"
+                        },
+                        {
+                            "qualification_title":"Diploma in Computer Engineering",
+                            "qualification_subtitle":"MSBTE",
+                            "qualification_year":"2017 - 2019"
+                        },
+                        {
+                            "qualification_title":"Web Devloper",
+                            "qualification_subtitle":"Pune - Adiflex Technology",
+                            "qualification_year":"1st Jan 2022 - 1st Jul 2022"
+                        },
+                        {
+                            "qualification_title":"Internship (Java & SQL)",
+                            "qualification_subtitle":"At TCR Innovation",
+                            "qualification_year":"27th Jan 2022 - 20th Apr 2022"
+                        }
+                    ]
+                }
+            }
+        },
+        "services":{
+            "service_title":"Services",
+            "service_subtitle":"What i Offer",
+            "servise_content":[
+                {
+                    "s_content_title":"UI/UX",
+                    "s_content_subtitle":"Designer",
+                    "services_model_services":[
+                        {
+                            "services_model_services_data":"Organizing page layouts."
+                        },
+                        {
+                            "services_model_services_data":"I devlope user personas based on target customers."
+                        },
+                        {
+                            "services_model_services_data":"Performing user testing to validate design decisions and identify problems."
+                        },
+                        {
+                            "services_model_services_data":"Designing interactive elements, such as scrollers, buttons, toggles, drop-down menus, and text fields."
+                        }
+                    ]
+                },
+                {
+                    "s_content_title":"Frontend",
+                    "s_content_subtitle":"Devloper",
+                    "services_model_services":[
+                        {
+                            "services_model_services_data":"I devlope the user interface."
+                        },
+                        {
+                            "services_model_services_data":"Web page devlopement."
+                        },
+                        {
+                            "services_model_services_data":"Write backend services."
+                        },
+                        {
+                            "services_model_services_data":"I crate and integrate third party libraries"
+                        }
+                    ]
+                },
+                {
+                    "s_content_title":"Backend",
+                    "s_content_subtitle":"Devloper",
+                    "services_model_services":[
+                        {
+                            "services_model_services_data":"I devlope the Secure backend interface."
+                        },
+                        {
+                            "services_model_services_data":"Database Management."
+                        },
+                        {
+                            "services_model_services_data":"Write backend services and integrate database."
+                        },
+                        {
+                            "services_model_services_data":"I crate API Based on requirements"
+                        }
+                    ]
+                }
+            ]
+        },
+        "portfolio":{
+            "portfolio_title":"Portfolio",
+            "portfolio_subtitle":"Most recent work",
+            "portfolio_content":[
+                {
+                    "portfolio_content_title":"Modern Website",
+                    "portfolio_content_image":"../../../../../assets/images/portfolio1.jpg",
+                    "portfolio_content_subtitle":"Modern Website",
+                    "portfolio_description_title":"Description",
+                    "portfolio_description":"Lorem dolor sit amet consectetur, adipisicing elit. Nam aperiam quia, voluptatum sunt esse repudiandae cumque obcaecati iusto nihil. Possimus architecto dolorum consequatur corporis modi vero dolores itaque, ut molestias!"
+                },
+                {
+                    "portfolio_content_title":"Modern Website",
+                    "portfolio_content_image":"../../../../../assets/images/portfolio2.jpg",
+                    "portfolio_content_subtitle":"Modern Website",
+                    "portfolio_description_title":"Description",
+                    "portfolio_description":"Lorem dolor sit amet consectetur, adipisicing elit. Nam aperiam quia, voluptatum sunt esse repudiandae cumque obcaecati iusto nihil. Possimus architecto dolorum consequatur corporis modi vero dolores itaque, ut molestias!"
+                },
+                {
+                    "portfolio_content_title":"Modern Website",
+                    "portfolio_content_image":"../../../../../assets/images/portfolio3.jpg",
+                    "portfolio_content_subtitle":"Modern Website",
+                    "portfolio_description_title":"Description",
+                    "portfolio_description":"Lorem dolor sit amet consectetur, adipisicing elit. Nam aperiam quia, voluptatum sunt esse repudiandae cumque obcaecati iusto nihil. Possimus architecto dolorum consequatur corporis modi vero dolores itaque, ut molestias!"
+                }
+            ]
+        }
+    }
+}

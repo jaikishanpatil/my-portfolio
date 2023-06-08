@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FORM_MODEL } from '../model/form-base.enum';
+import { MainService } from '../../main.service';
 
 declare function portfolioSwiper(): void;
 declare function testimonialSwiper(): void;
@@ -10,12 +11,15 @@ declare function testimonialSwiper(): void;
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-  constructor(private readonly formbuilder: FormBuilder) {}
-
+  constructor(private readonly formbuilder: FormBuilder , private readonly _mainService : MainService) {}
+  // var for data
+  headerData:any 
+  mainData:any
   //Form content
   form_models = FORM_MODEL;
   myForm: FormGroup | any;
   submitted: boolean = false;
+  serviceIndex:any
 
   get name() {
     return this.myForm.controls[FORM_MODEL.NAME];
@@ -33,13 +37,24 @@ export class MainComponent implements OnInit {
 
   activeAccordion = 'One';
   todaysDate: any = new Date().toLocaleDateString();
+
   ngOnInit(): void {
+    this.getClientData();
     window.addEventListener('scroll',this.showScroll);
     this.initilizeForm();
     portfolioSwiper();
     testimonialSwiper();
     this.qualificationTabs();
-    this.serviceTab();
+    // this.serviceTab();
+  }
+
+  getClientData(){
+    this._mainService.getClientData().subscribe(data=>{
+      if(data){
+        this.mainData=data.main
+        this.headerData=data.header
+      }
+    })
   }
 
   initilizeForm() {
@@ -90,27 +105,27 @@ export class MainComponent implements OnInit {
   }
 
   // services tab
-  serviceTab() {
-    const modalView = document.querySelectorAll('.services_model');
-    const modalBtns = document.querySelectorAll('.services_button');
-    const modalClose = document.querySelectorAll('.services_model-close');
+  // serviceTab() {
+  //   const modalView = document.querySelectorAll('.services_model');
+  //   const modalBtns = document.querySelectorAll('.services_button');
+  //   const modalClose = document.querySelectorAll('.services_model-close');
 
-    let model = function (modelClick: any) {
-      modalView[modelClick].classList.add('active-modal');
-    };
-    modalBtns.forEach((modalbtn: any, index) => {
-      modalbtn.addEventListener('click', () => {
-        model(index);
-      });
-    });
-    modalClose.forEach((modelClose: any) => {
-      modelClose.addEventListener('click', () => {
-        modalView.forEach((modelvies: any) => {
-          modelvies.classList.remove('active-modal');
-        });
-      });
-    });
-  }
+  //   let model = function (modelClick: any) {
+  //     modalView[modelClick].classList.add('active-modal');
+  //   };
+  //   modalBtns.forEach((modalbtn: any, index) => {
+  //     modalbtn.addEventListener('click', () => {
+  //       model(index);
+  //     });
+  //   });
+  //   modalClose.forEach((modelClose: any) => {
+  //     modelClose.addEventListener('click', () => {
+  //       modalView.forEach((modelvies: any) => {
+  //         modelvies.classList.remove('active-modal');
+  //       });
+  //     });
+  //   });
+  // }
 
   submitForm() {
     if (this.myForm.valid) {
@@ -132,6 +147,13 @@ export class MainComponent implements OnInit {
     }else{
       scrollUp?.classList.remove('show-scroll');
     }
+  }
+
+  serviceOpen(i:any){
+    this.serviceIndex=i;
+  }
+  serviceClose(i:any){
+    this.serviceIndex=i;
   }
 }
   

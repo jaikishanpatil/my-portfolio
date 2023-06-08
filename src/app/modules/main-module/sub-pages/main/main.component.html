@@ -1,18 +1,12 @@
-<app-header></app-header>
+<app-header [headerData]="headerData"></app-header>
 <main class="main">
     <!-- home section -->
     <section class="home section" id="home">
         <div class="home_container container grid">
             <div class="home_content grid">
                 <div class="home_social">
-                    <a href="#" class="home_social-icon">
-                        <i class="uil uil-linkedin-alt"></i>
-                    </a>
-                    <a href="#" class="home_social-icon">
-                        <i class="uil uil-dribbble"></i>
-                    </a>
-                    <a href="#" class="home_social-icon">
-                        <i class="uil uil-github-alt"></i>
+                    <a href="{{item.url}}" class="home_social-icon" *ngFor="let item of mainData?.home?.social_profile">
+                        <i class="{{item.icon}}" title="{{item.label}}"></i>
                     </a>
                 </div>
                 <div class="home_img">
@@ -33,9 +27,9 @@
                     </svg>
                 </div>
                 <div class="home_data">
-                    <h1 class="home_title">Hi, Iam Jaikishan</h1>
-                    <h3 class="home_subtitle">Full stack devloper</h3>
-                    <p class="home_description"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum, nesciunt sit! Commodi dolorem est quod, adipisci quo veniam explicabo corrupti iure tenetur ab necessitatibus</p>
+                    <h1 class="home_title">{{mainData?.home?.your_information.title}}</h1>
+                    <h3 class="home_subtitle">{{mainData?.home?.your_information.designation}}</h3>
+                    <p class="home_description"> {{mainData?.home?.your_information.description}}</p>
                     <a href="#contact" class="button button--flex">
                         Contact Me <i class="uil uil-message button_icon"></i>
                     </a>
@@ -53,32 +47,24 @@
     </section>
     <!-- About Section -->
     <section class="about section" id="about">
-        <h2 class="section_title">About Me</h2>
-        <span class="section_subtitle">My Introduction</span>
+        <h2 class="section_title">{{ mainData?.about?.section_name }}</h2>
+        <span class="section_subtitle">{{ mainData?.about?.Section_subtitle }}</span>
 
         <div class="about_container container grid">
-            <img src="../../../../../assets/images/jaikisha_about_img.png" alt="" class="about_img">
+            <img src="{{mainData?.about?.profile_image}}" alt="" class="about_img">
 
             <div class="about_data">
                 <p class="about_description">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque voluptatem adipisci, eius quos delectus molestiae harum tempore vero rem, magni ducimus, consequuntur dolor a architecto deleniti esse nulla. Architecto, illum?
+                    {{mainData?.about?.description}}
                 </p>
                 <div class="about_info">
-                    <div>
-                        <span class="about_info-title">01+</span>
-                        <span class="about_info-name">Years <br> experience</span>
-                    </div>
-                    <div>
-                        <span class="about_info-title">09+</span>
-                        <span class="about_info-name">Completed <br> projects</span>
-                    </div>
-                    <div>
-                        <span class="about_info-title">01+</span>
-                        <span class="about_info-name">Companies <br> Worked</span>
+                    <div *ngFor="let item of mainData?.about?.info">
+                        <span class="about_info-title"> {{item.experiance_year_number}} </span>
+                        <span class="about_info-name">{{item.experiance_year_desc.status}} <br> {{item.experiance_year_desc.status_1}}</span>
                     </div>
                 </div>
-                <div class="about_buttons">
-                    <a download="" href="../../../../../assets/pdf/Jaikishan Dhanaji Patil Resume(new).pdf" class="button button--flex">
+                <div class="about_buttons" *ngIf="mainData?.about?.download.isDownload">
+                    <a download="" href="{{mainData?.about?.download.url}}" class="button button--flex">
                         Download CV<i class="uil uil-download-alt button_icon"></i>
                     </a>
                 </div>
@@ -87,32 +73,32 @@
     </section>
 <!-- Skill Section -->
     <section class="skills section" id="skills">
-        <h2 class="section_title">Skills</h2>
-        <span class="section_subtitle">My Technical Level</span>
+        <h2 class="section_title">{{mainData?.skills.section_name}}</h2>
+        <span class="section_subtitle">{{mainData?.skills.Section_subtitle}}</span>
 
         <div class="skills_container container grid">
             <div>
                 <!-- skill 1 -->
-                <div class="skill_content skills_open" [ngClass]="{ 'skill_content skills_open': isActive('One') }" (click)="setActive('One')">
+                <div class="skill_content skills_open" *ngFor="let item of mainData?.skills.skill_info_left_side" [ngClass]="{ 'skill_content skills_open': isActive(item.isActive) }" (click)="setActive(item.isActive)">
                     <div class="skills_header" id="skills_header">
-                        <i class="uil uil-brackets-curly skills_icon"></i>
+                        <i class="{{item.icon}} skills_icon"></i>
                         <div>
-                            <h1 class="skills_title">Frontend Devloper</h1>
-                            <span class="skills_subtitle">More than 1 years</span>
+                            <h1 class="skills_title">{{item.skill_title}}</h1>
+                            <span class="skills_subtitle">{{item.skill_subtitle}}</span>
                         </div>
                         <i class="uil uil-angle-down skills_arrow"></i>
                     </div>
-                    <div class="skills_list grid" *ngIf="isActive('One')">
-                        <div class="skills_data">
+                    <div class="skills_list grid" *ngIf="isActive(item.isActive)">
+                        <div class="skills_data" *ngFor="let data of item.skill_data">
                             <div class="skills_titles">
-                                <h3 class="skills_name">HTML</h3>
-                                <span class="skills_number">90%</span>
+                                <h3 class="skills_name">{{data.skill_name}}</h3>
+                                <span class="skills_number">{{data.skill_understand_number}}</span>
                             </div>
                             <div class="skills_bar">
-                                <span class="skills_percentage skills_html"></span>
+                                <span class="skills_percentage " [ngStyle]="{'width': data.skill_understand_number}"></span>
                             </div>
                         </div>
-                        <div class="skills_data">
+                        <!-- <div class="skills_data">
                             <div class="skills_titles">
                                 <h3 class="skills_name">CSS</h3>
                                 <span class="skills_number">60%</span>
@@ -138,11 +124,11 @@
                             <div class="skills_bar">
                                 <span class="skills_percentage skills_angular"></span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <!-- skill 2 -->
-                <div class="skill_content skills_close" [ngClass]="{ 'skill_content skills_open': isActive('Two') }" (click)="setActive('Two')">
+                <!-- <div class="skill_content skills_close" [ngClass]="{ 'skill_content skills_open': isActive('Two') }" (click)="setActive('Two')">
                     <div class="skills_header" id="skills_header">
                         <i class="uil uil-server-network skills_icon"></i>
                         <div>
@@ -189,45 +175,27 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div>
                  <!-- skill 3 -->
-                 <div class="skill_content skills_close" [ngClass]="{ 'skill_content skills_open': isActive('Three') }" (click)="setActive('Three')">
+                 <div class="skill_content skills_close" *ngFor="let item of mainData?.skills.skill_info_right_side" [ngClass]="{ 'skill_content skills_open': isActive(item.isActive) }" (click)="setActive(item.isActive)">
                     <div class="skills_header" id="skills_header">
-                        <i class="uil uil-swatchbook skills_icon"></i>
+                        <i class="{{item.icon}} skills_icon"></i>
                         <div>
-                            <h1 class="skills_title">Designer</h1>
-                            <span class="skills_subtitle">More than ## Months/Years</span>
+                            <h1 class="skills_title">{{item.skill_title}}</h1>
+                            <span class="skills_subtitle">{{item.skill_subtitle}}</span>
                         </div>
                         <i class="uil uil-angle-down skills_arrow"></i>
                     </div>
-                    <div class="skills_list grid" *ngIf="isActive('Three')">
-                        <div class="skills_data">
+                    <div class="skills_list grid" *ngIf="isActive(item.isActive)">
+                        <div class="skills_data" *ngFor="let data of item.skill_data">
                             <div class="skills_titles">
-                                <h3 class="skills_name">Figma</h3>
-                                <span class="skills_number">40%</span>
+                                <h3 class="skills_name">{{data.skill_name}}</h3>
+                                <span class="skills_number">{{data.skill_understand_number}}</span>
                             </div>
                             <div class="skills_bar">
-                                <span class="skills_percentage skills_figma"></span>
-                            </div>
-                        </div>
-                        <div class="skills_data">
-                            <div class="skills_titles">
-                                <h3 class="skills_name">Sketch</h3>
-                                <span class="skills_number">40%</span>
-                            </div>
-                            <div class="skills_bar">
-                                <span class="skills_percentage skills_sketch"></span>
-                            </div>
-                        </div>
-                        <div class="skills_data">
-                            <div class="skills_titles">
-                                <h3 class="skills_name">Photoshop</h3>
-                                <span class="skills_number">50%</span>
-                            </div>
-                            <div class="skills_bar">
-                                <span class="skills_percentage skills_photoshop"></span>
+                                <span class="skills_percentage " [ngStyle]="{'width': data.skill_understand_number}"></span>
                             </div>
                         </div>
                     </div>
@@ -354,138 +322,36 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Qualification 3
-                    <div class="qualification_data">
-                        <div>
-                            <h3 class="qualification_title">Web Devloper</h3>
-                            <span class="qualification_subtitle">Pune - Adiflex Technology</span>
-                            <div class="qualification_calender">
-                                <i class="uil uil-calendar-alt"></i>
-                                2019 - 2022
-                            </div>
-                        </div>
-
-                        <div>
-                            <span class="qualification_rounder"></span>
-                            <span class="qualification_line"></span>    
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
     </section>
     <!-- Service Tab/ section -->
     <section class="services section" id="services">
-        <h2 class="section_title">Services</h2>
-        <span class="section_subtitle">What i Offer</span>
+        <h2 class="section_title">{{mainData?.services.service_title | titlecase}}</h2>
+        <span class="section_subtitle">{{mainData?.services.service_subtitle | titlecase}}</span>
 
         <div class="services_container container grid">
             <!-- Service 1 -->
-            <div class="services_content">
+            <div class="services_content" *ngFor="let item of mainData?.services.servise_content ; let i =index">
                 <div>
                     <i class="uil uil-web-grid services_icon"></i>
-                    <h3 class="services_title">UI/UX <br> Designer</h3>
+                    <h3 class="services_title">{{item.s_content_title}} <br> {{item.s_content_subtitle}}</h3>
                 </div>
-                <span class="button button--flex button--small button-link services_button">
+                <span class="button button--flex button--small button-link services_button" (click)="serviceOpen(i)">
                     View more
                     <i class="uil uil-arrow-right button_icon"></i>
                 </span>
 
-                <div class="services_model">
+                <div class="services_model" [ngClass]="{'active-modal': serviceIndex===i}">
                     <div class="services_modal-content">
-                        <h4 class="services_modal-title">UI/UX <br> Designer</h4>
-                        <i class="uil uil-times services_model-close"></i>
+                        <h4 class="services_modal-title">{{item.s_content_title}} <br> {{item.s_content_subtitle}}</h4>
+                        <i class="uil uil-times services_model-close" (click)="serviceClose(-1)"></i>
 
                         <ul class="services_model-services grid">
-                            <li class="services_modal-service">
+                            <li class="services_modal-service" *ngFor="let content of item.services_model_services">
                                 <i class="uil uil-check-circle services_modal-icon"></i>
-                                <p>I devlope the user interface. </p>
-                            </li>
-                            <li class="services_modal-service">
-                                <i class="uil uil-check-circle services_modal-icon"></i>
-                                <p>Web page devlopement. </p>
-                            </li>
-                            <li class="services_modal-service">
-                                <i class="uil uil-check-circle services_modal-icon"></i>
-                                <p>Write backend services. </p>
-                            </li>
-                            <li class="services_modal-service">
-                                <i class="uil uil-check-circle services_modal-icon"></i>
-                                <p>I crate UX element interaction </p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- Service 2 -->
-            <div class="services_content">
-                <div>
-                    <i class="uil uil-arrow services_icon"></i>
-                    <h3 class="services_title">Frontend <br> Devloper</h3>
-                </div>
-                <span class="button button--flex button--small button-link services_button">
-                    View more
-                    <i class="uil uil-arrow-right button_icon"></i>
-                </span>
-
-                <div class="services_model">
-                    <div class="services_modal-content">
-                        <h4 class="services_modal-title">Frontend <br> Devloper</h4>
-                        <i class="uil uil-times services_model-close"></i>
-
-                        <ul class="services_model-services grid">
-                            <li class="services_modal-service">
-                                <i class="uil uil-check-circle services_modal-icon"></i>
-                                <p>I devlope the user interface. </p>
-                            </li>
-                            <li class="services_modal-service">
-                                <i class="uil uil-check-circle services_modal-icon"></i>
-                                <p>Web page devlopement. </p>
-                            </li>
-                            <li class="services_modal-service">
-                                <i class="uil uil-check-circle services_modal-icon"></i>
-                                <p>Write backend services. </p>
-                            </li>
-                            <li class="services_modal-service">
-                                <i class="uil uil-check-circle services_modal-icon"></i>
-                                <p>I crate UX element interaction </p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- Service 3 -->
-            <div class="services_content">
-                <div>
-                    <i class="uil uil-brackets-curly services_icon"></i>
-                    <h3 class="services_title">Backend <br> Devloper</h3>
-                </div>
-                <span class="button button--flex button--small button-link services_button">
-                    View more
-                    <i class="uil uil-arrow-right button_icon"></i>
-                </span>
-
-                <div class="services_model">
-                    <div class="services_modal-content">
-                        <h4 class="services_modal-title">Backend <br> Devloper</h4>
-                        <i class="uil uil-times services_model-close"></i>
-
-                        <ul class="services_model-services grid">
-                            <li class="services_modal-service">
-                                <i class="uil uil-check-circle services_modal-icon"></i>
-                                <p>I devlope the user interface. </p>
-                            </li>
-                            <li class="services_modal-service">
-                                <i class="uil uil-check-circle services_modal-icon"></i>
-                                <p>Web page devlopement. </p>
-                            </li>
-                            <li class="services_modal-service">
-                                <i class="uil uil-check-circle services_modal-icon"></i>
-                                <p>Write backend services. </p>
-                            </li>
-                            <li class="services_modal-service">
-                                <i class="uil uil-check-circle services_modal-icon"></i>
-                                <p>I crate UX element interaction </p>
+                                <p>{{content.services_model_services_data}} </p>
                             </li>
                         </ul>
                     </div>
@@ -495,8 +361,8 @@
     </section>
     <!-- Portfolio -->
     <section class="portfolio section" id="portfolio">
-        <h2 class="section_title">Portfolio</h2>
-        <span class="section_subtitle">Most recent work</span>
+        <h2 class="section_title">{{mainData?.portfolio.portfolio_title}}</h2>
+        <span class="section_subtitle">{{mainData?.portfolio.portfolio_title}}</span>
 
         <div class="portfolio_container container swiper-container">
             <div class="swiper-wrapper">
@@ -506,11 +372,12 @@
 
                     <div class="portfolio_data">
                         <h3 class="portfolio_title">Modern Website</h3>
-                        <p class="portfolio_description">Lorem dolor sit amet consectetur, adipisicing elit. Nam aperiam quia, voluptatum sunt esse repudiandae cumque obcaecati iusto nihil. Possimus architecto dolorum consequatur corporis modi vero dolores itaque, ut molestias!</p>
-                        <a href="#" class="button button--flex button--small portfolio_button">
+                        <h6 class="portfolio_sub_title">Modern Website</h6>
+                        <p class="portfolio_description"><strong>Description: </strong>Lorem dolor sit amet consectetur, adipisicing elit. Nam aperiam quia, voluptatum sunt esse repudiandae cumque obcaecati iusto nihil. Possimus architecto dolorum consequatur corporis modi vero dolores itaque, ut molestias!</p>
+                        <!-- <a href="#" class="button button--flex button--small portfolio_button">
                             Demo
                             <i class="uil uil-arrow-right button_icon"></i>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
                 <!-- Portfolio 2 -->
@@ -519,11 +386,12 @@
 
                     <div class="portfolio_data">
                         <h3 class="portfolio_title">Modern Website</h3>
-                        <p class="portfolio_description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam aperiam quia, voluptatum sunt esse repudiandae cumque obcaecati iusto nihil. Possimus architecto dolorum consequatur corporis modi vero dolores itaque, ut molestias!</p>
-                        <a href="#" class="button button--flex button--small portfolio_button">
+                        <h6 class="portfolio_sub_title">Modern Website</h6>
+                        <p class="portfolio_description"><strong>Description: </strong>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam aperiam quia, voluptatum sunt esse repudiandae cumque obcaecati iusto nihil. Possimus architecto dolorum consequatur corporis modi vero dolores itaque, ut molestias! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam aperiam quia, voluptatum sunt esse repudiandae cumque obcaecati iusto nihil. Possimus architecto dolorum consequatur corporis modi vero dolores itaque, ut molestias!</p>
+                        <!-- <a href="#" class="button button--flex button--small portfolio_button">
                             Demo
                             <i class="uil uil-arrow-right button_icon"></i>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
                 <!-- Portfolio 3 -->
@@ -532,11 +400,12 @@
 
                     <div class="portfolio_data">
                         <h3 class="portfolio_title">Modern Website</h3>
-                        <p class="portfolio_description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam aperiam quia, voluptatum sunt esse repudiandae cumque obcaecati iusto nihil.</p>
-                        <a href="#" class="button button--flex button--small portfolio_button">
+                        <h6 class="portfolio_sub_title">Modern Website</h6>
+                        <p class="portfolio_description"> <strong>Description: </strong> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam aperiam quia, voluptatum sunt esse repudiandae cumque obcaecati iusto nihil.</p>
+                        <!-- <a href="#" class="button button--flex button--small portfolio_button">
                             Demo
                             <i class="uil uil-arrow-right button_icon"></i>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </div>
