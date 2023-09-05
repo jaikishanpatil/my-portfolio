@@ -20,6 +20,7 @@ export class MainComponent implements OnInit {
   myForm: FormGroup | any;
   submitted: boolean = false;
   serviceIndex:any
+  activeTab:string = 'education';
 
   get name() {
     return this.myForm.controls[FORM_MODEL.NAME];
@@ -82,6 +83,7 @@ export class MainComponent implements OnInit {
     tabs.forEach((tab: any) => {
       tab.addEventListener('click', () => {
         const target = document.querySelector(tab.dataset.target);
+        this.activeTab = target.id;
         tabContents.forEach((tabcontent: any) => {
           tabcontent.classList.remove('qualification_active');
         });

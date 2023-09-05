@@ -5,7 +5,7 @@
         <div class="home_container container grid">
             <div class="home_content grid">
                 <div class="home_social">
-                    <a href="{{item.url}}" class="home_social-icon" *ngFor="let item of mainData?.home?.social_profile">
+                    <a href="{{item.url}}" target="_blank" class="home_social-icon" *ngFor="let item of mainData?.home?.social_profile">
                         <i class="{{item.icon}}" title="{{item.label}}"></i>
                     </a>
                 </div>
@@ -210,12 +210,12 @@
 
         <div class="qualification_container container">
             <div class="qualification_tabs">
-                <div class="qualification_button button--flex qualification_active" data-target="#education">
+                <div class="qualification_button button--flex qualification_active" [ngClass]="{'active_tab': activeTab == 'education'}" data-target="#education">
                     <i class="uil uil-graduation-cap qualification_icon"></i>
                     Education
                 </div>
 
-                <div class="qualification_button button--flex" data-target="#work">
+                <div class="qualification_button button--flex" [ngClass]="{'active_tab': activeTab == 'work'}" data-target="#work">
                     <i class="uil uil-briefcase-alt qualification_icon"></i>
                     Work
                 </div>
@@ -259,7 +259,7 @@
                     <div class="qualification_data">
                         <div>
                             <h3 class="qualification_title">Web Devloper</h3>
-                            <span class="qualification_subtitle">Pune - Adiflex Technology</span>
+                            <span class="qualification_subtitle">Adiflex Technology, Pune</span>
                             <div class="qualification_calender">
                                 <i class="uil uil-calendar-alt"></i>
                                 1st Jan 2022 - 1st Jul 2022
@@ -371,8 +371,9 @@
                     <img src="../../../../../assets/images/portfolio1.jpg" alt="" class="portfolio_img">
 
                     <div class="portfolio_data">
-                        <h3 class="portfolio_title">Modern Website</h3>
-                        <h6 class="portfolio_sub_title">Modern Website</h6>
+                        <h3 class="portfolio_title">Reward System For Google Classroom  <a href="https://github.com/jaikishanpatil/Reward-System-For-Google-Classroom" target="_blank" rel="noopener noreferrer"><i class="uil uil-link" title="Click me"></i></a></h3>
+                        <!-- <h6 class="portfolio_sub_title">Reward System For Google Classroom</h6> -->
+                        <h6 class="portfolio_sub_title"><strong>Technology: </strong>Java, JavaScript, MySQL</h6>
                         <p class="portfolio_description"><strong>Description: </strong>Lorem dolor sit amet consectetur, adipisicing elit. Nam aperiam quia, voluptatum sunt esse repudiandae cumque obcaecati iusto nihil. Possimus architecto dolorum consequatur corporis modi vero dolores itaque, ut molestias!</p>
                         <!-- <a href="#" class="button button--flex button--small portfolio_button">
                             Demo
@@ -385,8 +386,9 @@
                     <img src="../../../../../assets/images/portfolio2.jpg" alt="" class="portfolio_img">
 
                     <div class="portfolio_data">
-                        <h3 class="portfolio_title">Modern Website</h3>
-                        <h6 class="portfolio_sub_title">Modern Website</h6>
+                        <h3 class="portfolio_title">Dashboard  <a href="https://github.com/jaikishanpatil/Reward-System-For-Google-Classroom" target="_blank" rel="noopener noreferrer"><i class="uil uil-link" title="Click me"></i></a></h3>
+                        <!-- <h6 class="portfolio_sub_title">Modern Website</h6> -->
+                        <h6 class="portfolio_sub_title"><strong>Technology: </strong>Angular, TypeScript, NodeJs, MySQL</h6>
                         <p class="portfolio_description"><strong>Description: </strong>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam aperiam quia, voluptatum sunt esse repudiandae cumque obcaecati iusto nihil. Possimus architecto dolorum consequatur corporis modi vero dolores itaque, ut molestias! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam aperiam quia, voluptatum sunt esse repudiandae cumque obcaecati iusto nihil. Possimus architecto dolorum consequatur corporis modi vero dolores itaque, ut molestias!</p>
                         <!-- <a href="#" class="button button--flex button--small portfolio_button">
                             Demo
@@ -399,8 +401,24 @@
                     <img src="../../../../../assets/images/portfolio3.jpg" alt="" class="portfolio_img">
 
                     <div class="portfolio_data">
-                        <h3 class="portfolio_title">Modern Website</h3>
-                        <h6 class="portfolio_sub_title">Modern Website</h6>
+                        <h3 class="portfolio_title">My Portfolio  <a href="https://github.com/jaikishanpatil/Reward-System-For-Google-Classroom" target="_blank" rel="noopener noreferrer"><i class="uil uil-link" title="Click me"></i></a></h3>
+                        <!-- <h6 class="portfolio_sub_title">Modern Website</h6> -->
+                        <h6 class="portfolio_sub_title"><strong>Technology: </strong>Angular, TypeScript, NodeJs, MySQL</h6>
+                        <p class="portfolio_description"> <strong>Description: </strong> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam aperiam quia, voluptatum sunt esse repudiandae cumque obcaecati iusto nihil.</p>
+                        <!-- <a href="#" class="button button--flex button--small portfolio_button">
+                            Demo
+                            <i class="uil uil-arrow-right button_icon"></i>
+                        </a> -->
+                    </div>
+                </div>
+                <!-- Portfolio 4 -->
+                <div class="portfolio_content grid swiper-slide">
+                    <img src="../../../../../assets/images/portfolio3.jpg" alt="" class="portfolio_img">
+
+                    <div class="portfolio_data">
+                        <h3 class="portfolio_title">Employee Management System  <a href="https://github.com/jaikishanpatil/Employee-Management-System" target="_blank" rel="noopener noreferrer"><i class="uil uil-link" title="Click me"></i></a></h3>
+                        <!-- <h6 class="portfolio_sub_title">Modern Website</h6> -->
+                        <h6 class="portfolio_sub_title"><strong>Technology: </strong>Java, MySQL</h6>
                         <p class="portfolio_description"> <strong>Description: </strong> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam aperiam quia, voluptatum sunt esse repudiandae cumque obcaecati iusto nihil.</p>
                         <!-- <a href="#" class="button button--flex button--small portfolio_button">
                             Demo

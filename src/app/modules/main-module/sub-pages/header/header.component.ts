@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 // declare function darkLightTheme():void
 @Component({
   selector: 'app-header',
@@ -8,20 +9,23 @@ import { Component, Input, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   @Input() headerData:any = {}
   isShowMenu:boolean=false
+  activeNav:string = '';
 
-  constructor() {
+  constructor(private readonly router :Router) {
     
   }
 
   ngOnInit(): void {
+    this.activeNav = this.router.url.slice(2);
     this.darkLightTheme();
     window.addEventListener('scroll',this.scrollHeader);
   }
   showMenu(isShowMenu:boolean){
     this.isShowMenu=isShowMenu;
   }
-  closeMenu(isShowMenu:boolean){
+  closeMenu(isShowMenu:boolean , activenav?:string){
     this.isShowMenu=isShowMenu;
+    this.activeNav = activenav || '';
   }
 
   scrollHeader(){

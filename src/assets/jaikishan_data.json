@@ -39,12 +39,12 @@
             "social_profile":[
                 {
                     "icon":"uil uil-linkedin-alt",
-                    "url":"#",
+                    "url":"https://www.linkedin.com/in/jaikishan-patil-b858ab232",
                     "label":"LinkdIn"
                 },
                 {
                     "icon":"uil uil-github-alt",
-                    "url":"#",
+                    "url":"https://github.com/jaikishanpatil",
                     "label":"Git Hub"
                 },
                 {
@@ -54,7 +54,7 @@
                 },
                 {
                     "icon":"uil uil-instagram",
-                    "url":"#",
+                    "url":"https://www.instagram.com/jaikishan_patil/",
                     "label":"Instagram"
                 }
             ],
@@ -62,14 +62,14 @@
             "your_information":{
                 "title":"Hi, Iam Jaikishan",
                 "designation":"Full stack devloper",
-                "description":"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum, nesciunt sit! Commodi dolorem est quod, adipisci quo veniam explicabo corrupti iure tenetur ab necessitatibus"
+                "description":"Dedicated and highly motivated Software Engineer with over 1.2 years of experience in full stack development. Proficient in designing, developing, and maintaining robust web applications, I am passionate about creating innovative solutions that drive business success."
             }
         },
         "about":{
             "section_name":"About Me",
             "Section_subtitle":"My Introduction",
             "profile_image":"../../../../../assets/images/jaikisha_about_img.png",
-            "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque voluptatem adipisci, eius quos delectus molestiae harum tempore vero rem, magni ducimus, consequuntur dolor a architecto deleniti esse nulla. Architecto, illum?",
+            "description":"I am Jaikishan Patil, a dedicated Software Engineer specializing in Full Stack Development. With more than 1.2 years of hands-on experience, I am passionate about creating robust web applications that deliver exceptional user experiences. My skill set includes a wide range of front-end and back-end technologies, enabling me to design, develop, and maintain versatile web solutions.",
             "info":[
                 {
                     "experiance_year_number":"01+",
@@ -193,7 +193,7 @@
                         },
                         {
                             "qualification_title":"Web Devloper",
-                            "qualification_subtitle":"Pune - Adiflex Technology",
+                            "qualification_subtitle":"Adiflex Technology, Pune",
                             "qualification_year":"1st Jan 2022 - 1st Jul 2022"
                         },
                         {
@@ -235,7 +235,7 @@
                             "services_model_services_data":"I devlope the user interface."
                         },
                         {
-                            "services_model_services_data":"Web page devlopement."
+                            "services_model_services_data":"Web page/application devlopement."
                         },
                         {
                             "services_model_services_data":"Write backend services."

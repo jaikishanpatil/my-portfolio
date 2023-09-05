@@ -325,6 +325,14 @@
 .qualification_active[data-content] {
   display: block !important;
 }
+.active_tab{
+  color: var(--first-color) !important;
+}
+.portfolio_link{
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
 
 // Services
 .services_container {

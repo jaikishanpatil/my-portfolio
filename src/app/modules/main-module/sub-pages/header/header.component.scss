@@ -8,7 +8,9 @@
   z-index: var(--z-fixed);
   background-color: var(--body-colour);
 }
-
+.active_nav{
+  color: var(--first-color) !important;
+}
 .nav {
   max-width: 968px;
   height: var(--header-height);
