@@ -161,9 +161,7 @@ export class MainComponent implements OnInit {
       let id= sec.getAttribute('id');
 
       if(top>=offset && top<offset+height){
-        navLinks.forEach(links =>{
-          console.log(id);
-          
+        navLinks.forEach(links =>{          
           links.classList.remove('active_nav');
           document.querySelector('header nav a[href*='+ id +']')?.classList.add('active_nav');
         })
