@@ -167,8 +167,6 @@ export class MainComponent implements OnInit {
         })
       }
     })
-    // window.onscroll = ()=>{
-    // }
   }
 
   serviceOpen(i:any){
