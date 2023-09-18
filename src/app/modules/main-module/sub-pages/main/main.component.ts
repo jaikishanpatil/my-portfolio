@@ -15,6 +15,7 @@ export class MainComponent implements OnInit {
   // var for data
   headerData:any 
   mainData:any
+  activeNav:string= ''
   //Form content
   form_models = FORM_MODEL;
   myForm: FormGroup | any;
@@ -149,6 +150,27 @@ export class MainComponent implements OnInit {
     }else{
       scrollUp?.classList.remove('show-scroll');
     }
+
+    let section =document.querySelectorAll('section');
+    let navLinks= document.querySelectorAll('header nav a');
+
+    section.forEach(sec=>{
+      let top = window.scrollY
+      let offset = sec.offsetTop - 140;
+      let height = sec.offsetHeight;
+      let id= sec.getAttribute('id');
+
+      if(top>=offset && top<offset+height){
+        navLinks.forEach(links =>{
+          console.log(id);
+          
+          links.classList.remove('active_nav');
+          document.querySelector('header nav a[href*='+ id +']')?.classList.add('active_nav');
+        })
+      }
+    })
+    // window.onscroll = ()=>{
+    // }
   }
 
   serviceOpen(i:any){

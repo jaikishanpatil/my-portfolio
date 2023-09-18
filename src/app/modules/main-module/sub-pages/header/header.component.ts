@@ -8,15 +8,18 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   @Input() headerData:any = {}
+  @Input() activeNav:string = 'home';
   isShowMenu:boolean=false
-  activeNav:string = '';
 
   constructor(private readonly router :Router) {
     
   }
 
   ngOnInit(): void {
-    this.activeNav = this.router.url.slice(2);
+    let url=this.router.url.slice(2);
+    if(url){
+      this.activeNav = this.router.url.slice(2);
+    }
     this.darkLightTheme();
     window.addEventListener('scroll',this.scrollHeader);
   }
