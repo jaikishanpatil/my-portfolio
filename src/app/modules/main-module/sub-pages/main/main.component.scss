@@ -45,6 +45,8 @@
 }
 
 .home_description {
+  overflow-y: auto;
+  // height: 100px;
   margin-bottom: var(--mb-2);
 }
 
@@ -505,9 +507,10 @@
 .project_img {
   width: 232px;
   justify-content: center !important;
-  display: block;
+  display: flex;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 0.8rem;
 }
 
 // Testimonoals
@@ -682,6 +685,9 @@
     margin-left: var(--mb-1);
     margin-right: var(--mb-1);
   }
+  .home_description{
+    height: auto !important;
+  }
   .home_container{
     grid-template-columns: .25fr 3fr;
   }
@@ -730,6 +736,9 @@
 @media screen and (min-width:568px){
   .home_content{
     grid-template-columns: max-content 1fr 1fr;
+  }
+  .home_description{
+    height: auto !important;
   }
   .home_data{
     grid-column: initial;
@@ -831,7 +840,7 @@
   .project_container{
     background-color: var(--first-color-second);
     border-radius: 1rem;
-    padding: 3rem 2,3rem 0;
+    padding: 2rem;
     grid-template-columns: 1fr max-content;
     column-gap: 3rem;
   }

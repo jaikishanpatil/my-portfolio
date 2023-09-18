@@ -53,6 +53,7 @@
 .nav_list {
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  overflow: auto;
 }
 .nav_link {
   display: flex;
