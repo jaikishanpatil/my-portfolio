@@ -335,7 +335,7 @@
             <!-- Service 1 -->
             <div class="services_content" *ngFor="let item of mainData?.services.servise_content ; let i =index">
                 <div>
-                    <i class="uil uil-web-grid services_icon"></i>
+                    <i class="{{item.s_content_icon}} services_icon"></i>
                     <h3 class="services_title">{{item.s_content_title}} <br> {{item.s_content_subtitle}}</h3>
                 </div>
                 <span class="button button--flex button--small button-link services_button" (click)="serviceOpen(i)">
@@ -367,8 +367,8 @@
         <div class="portfolio_container container swiper-container">
             <div class="swiper-wrapper">
                 <!-- Portfolio 1 -->
-                <div class="portfolio_content grid swiper-slide">
-                    <img src="../../../../../assets/images/portfolio1.jpg" alt="" class="portfolio_img">
+                <div class="portfolio_content grid swiper-slide" title="NO data found, Will update soon">
+                    <img src="../../../../../assets/images/noPhoto.png" alt="" class="portfolio_img">
 
                     <div class="portfolio_data">
                         <h3 class="portfolio_title">Reward System For Google Classroom  <a href="https://github.com/jaikishanpatil/Reward-System-For-Google-Classroom" target="_blank" rel="noopener noreferrer"><i class="uil uil-link" title="Click me"></i></a></h3>
@@ -383,7 +383,7 @@
                 </div>
                 <!-- Portfolio 2 -->
                 <div class="portfolio_content grid swiper-slide">
-                    <img src="../../../../../assets/images/portfolio2.jpg" alt="" class="portfolio_img">
+                    <img src="../../../../../assets/images/noPhoto.png" alt="" class="portfolio_img">
 
                     <div class="portfolio_data">
                         <h3 class="portfolio_title">Dashboard  <a href="https://github.com/jaikishanpatil/Reward-System-For-Google-Classroom" target="_blank" rel="noopener noreferrer"><i class="uil uil-link" title="Click me"></i></a></h3>
@@ -398,7 +398,7 @@
                 </div>
                 <!-- Portfolio 3 -->
                 <div class="portfolio_content grid swiper-slide">
-                    <img src="../../../../../assets/images/portfolio3.jpg" alt="" class="portfolio_img">
+                    <img src="../../../../../assets/images/noPhoto.png" alt="" class="portfolio_img">
 
                     <div class="portfolio_data">
                         <h3 class="portfolio_title">My Portfolio  <a href="https://github.com/jaikishanpatil/Reward-System-For-Google-Classroom" target="_blank" rel="noopener noreferrer"><i class="uil uil-link" title="Click me"></i></a></h3>
@@ -413,7 +413,7 @@
                 </div>
                 <!-- Portfolio 4 -->
                 <div class="portfolio_content grid swiper-slide">
-                    <img src="../../../../../assets/images/portfolio3.jpg" alt="" class="portfolio_img">
+                    <img src="../../../../../assets/images/noPhoto.png" alt="" class="portfolio_img">
 
                     <div class="portfolio_data">
                         <h3 class="portfolio_title">Employee Management System  <a href="https://github.com/jaikishanpatil/Employee-Management-System" target="_blank" rel="noopener noreferrer"><i class="uil uil-link" title="Click me"></i></a></h3>
@@ -428,7 +428,7 @@
                 </div>
                 <!-- Portfolio 5 -->
                 <div class="portfolio_content grid swiper-slide">
-                    <img src="../../../../../assets/images/portfolio3.jpg" alt="" class="portfolio_img">
+                    <img src="../../../../../assets/images/noPhoto.png" alt="" class="portfolio_img">
 
                     <div class="portfolio_data">
                         <h3 class="portfolio_title">All Purpose API  <a href="https://github.com/jaikishanpatil/all-apis" target="_blank" rel="noopener noreferrer"><i class="uil uil-link" title="Click me"></i></a></h3>
