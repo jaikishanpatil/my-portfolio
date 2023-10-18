@@ -15,11 +15,13 @@ export class MainComponent implements OnInit {
   // var for data
   headerData:any 
   mainData:any
+  activeNav:string= ''
   //Form content
   form_models = FORM_MODEL;
   myForm: FormGroup | any;
   submitted: boolean = false;
   serviceIndex:any
+  activeTab:string = 'education';
 
   get name() {
     return this.myForm.controls[FORM_MODEL.NAME];
@@ -82,6 +84,7 @@ export class MainComponent implements OnInit {
     tabs.forEach((tab: any) => {
       tab.addEventListener('click', () => {
         const target = document.querySelector(tab.dataset.target);
+        this.activeTab = target.id;
         tabContents.forEach((tabcontent: any) => {
           tabcontent.classList.remove('qualification_active');
         });
@@ -147,6 +150,23 @@ export class MainComponent implements OnInit {
     }else{
       scrollUp?.classList.remove('show-scroll');
     }
+
+    let section =document.querySelectorAll('section');
+    let navLinks= document.querySelectorAll('header nav a');
+
+    section.forEach(sec=>{
+      let top = window.scrollY
+      let offset = sec.offsetTop - 140;
+      let height = sec.offsetHeight;
+      let id= sec.getAttribute('id');
+
+      if(top>=offset && top<offset+height){
+        navLinks.forEach(links =>{          
+          links.classList.remove('active_nav');
+          document.querySelector('header nav a[href*='+ id +']')?.classList.add('active_nav');
+        })
+      }
+    })
   }
 
   serviceOpen(i:any){

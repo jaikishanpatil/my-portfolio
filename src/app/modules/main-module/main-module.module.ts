@@ -22,7 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderModule,
     NotFoundModule,
     FooterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers:[
     DatePipe

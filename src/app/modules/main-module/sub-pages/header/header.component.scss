@@ -8,7 +8,9 @@
   z-index: var(--z-fixed);
   background-color: var(--body-colour);
 }
-
+.active_nav{
+  color: var(--first-color) !important;
+}
 .nav {
   max-width: 968px;
   height: var(--header-height);
@@ -51,6 +53,7 @@
 .nav_list {
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  overflow: auto;
 }
 .nav_link {
   display: flex;

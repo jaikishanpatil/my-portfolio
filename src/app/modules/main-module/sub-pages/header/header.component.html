@@ -4,7 +4,7 @@
     <div class="nav_menu" id="nav-menu" [class.showMenu]="isShowMenu">
       <ul class="nav_list grid">
         <li class="nav_item" *ngFor="let item of headerData?.navigation_menu">
-          <a href="#{{item.href}}" class="nav_link" (click)="closeMenu(false)">
+          <a href="#{{item.href}}" class="nav_link" [ngClass]="{'active_nav': item.href == activeNav}" (click)="closeMenu(false , item.href)">
             <i class= "{{item.icon}} nav_icon"></i> {{item.label}}
           </a>
         </li>

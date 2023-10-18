@@ -1,11 +1,11 @@
-<app-header [headerData]="headerData"></app-header>
+<app-header [headerData]="headerData" [activeNav]="activeNav"></app-header>
 <main class="main">
     <!-- home section -->
     <section class="home section" id="home">
         <div class="home_container container grid">
             <div class="home_content grid">
                 <div class="home_social">
-                    <a href="{{item.url}}" class="home_social-icon" *ngFor="let item of mainData?.home?.social_profile">
+                    <a href="{{item.url}}" target="_blank" class="home_social-icon" *ngFor="let item of mainData?.home?.social_profile">
                         <i class="{{item.icon}}" title="{{item.label}}"></i>
                     </a>
                 </div>
@@ -210,12 +210,12 @@
 
         <div class="qualification_container container">
             <div class="qualification_tabs">
-                <div class="qualification_button button--flex qualification_active" data-target="#education">
+                <div class="qualification_button button--flex qualification_active" [ngClass]="{'active_tab': activeTab == 'education'}" data-target="#education">
                     <i class="uil uil-graduation-cap qualification_icon"></i>
                     Education
                 </div>
 
-                <div class="qualification_button button--flex" data-target="#work">
+                <div class="qualification_button button--flex" [ngClass]="{'active_tab': activeTab == 'work'}" data-target="#work">
                     <i class="uil uil-briefcase-alt qualification_icon"></i>
                     Work
                 </div>
@@ -259,7 +259,7 @@
                     <div class="qualification_data">
                         <div>
                             <h3 class="qualification_title">Web Devloper</h3>
-                            <span class="qualification_subtitle">Pune - Adiflex Technology</span>
+                            <span class="qualification_subtitle">Adiflex Technology, Pune</span>
                             <div class="qualification_calender">
                                 <i class="uil uil-calendar-alt"></i>
                                 1st Jan 2022 - 1st Jul 2022
@@ -335,7 +335,7 @@
             <!-- Service 1 -->
             <div class="services_content" *ngFor="let item of mainData?.services.servise_content ; let i =index">
                 <div>
-                    <i class="uil uil-web-grid services_icon"></i>
+                    <i class="{{item.s_content_icon}} services_icon"></i>
                     <h3 class="services_title">{{item.s_content_title}} <br> {{item.s_content_subtitle}}</h3>
                 </div>
                 <span class="button button--flex button--small button-link services_button" (click)="serviceOpen(i)">
@@ -367,13 +367,14 @@
         <div class="portfolio_container container swiper-container">
             <div class="swiper-wrapper">
                 <!-- Portfolio 1 -->
-                <div class="portfolio_content grid swiper-slide">
-                    <img src="../../../../../assets/images/portfolio1.jpg" alt="" class="portfolio_img">
+                <div class="portfolio_content grid swiper-slide" title="NO data found, Will update soon">
+                    <img src="../../../../../assets/images/noPhoto.png" alt="" class="portfolio_img">
 
                     <div class="portfolio_data">
-                        <h3 class="portfolio_title">Modern Website</h3>
-                        <h6 class="portfolio_sub_title">Modern Website</h6>
-                        <p class="portfolio_description"><strong>Description: </strong>Lorem dolor sit amet consectetur, adipisicing elit. Nam aperiam quia, voluptatum sunt esse repudiandae cumque obcaecati iusto nihil. Possimus architecto dolorum consequatur corporis modi vero dolores itaque, ut molestias!</p>
+                        <h3 class="portfolio_title">Reward System For Google Classroom  <a href="https://github.com/jaikishanpatil/Reward-System-For-Google-Classroom" target="_blank" rel="noopener noreferrer"><i class="uil uil-link" title="Click me"></i></a></h3>
+                        <!-- <h6 class="portfolio_sub_title">Reward System For Google Classroom</h6> -->
+                        <h6 class="portfolio_sub_title"><strong>Technology: </strong>Java, JavaScript, MySQL</h6>
+                        <p class="portfolio_description"><strong>Description: </strong>In this project we have developed reward system for Google classroom by using Java and Google API. Purpose behind creating such application is that students will be provoked by the sweet rewards rather than marks, they will have something for which if he/she completes assignment they will get handsome rewards.</p>
                         <!-- <a href="#" class="button button--flex button--small portfolio_button">
                             Demo
                             <i class="uil uil-arrow-right button_icon"></i>
@@ -382,12 +383,13 @@
                 </div>
                 <!-- Portfolio 2 -->
                 <div class="portfolio_content grid swiper-slide">
-                    <img src="../../../../../assets/images/portfolio2.jpg" alt="" class="portfolio_img">
+                    <img src="../../../../../assets/images/noPhoto.png" alt="" class="portfolio_img">
 
                     <div class="portfolio_data">
-                        <h3 class="portfolio_title">Modern Website</h3>
-                        <h6 class="portfolio_sub_title">Modern Website</h6>
-                        <p class="portfolio_description"><strong>Description: </strong>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam aperiam quia, voluptatum sunt esse repudiandae cumque obcaecati iusto nihil. Possimus architecto dolorum consequatur corporis modi vero dolores itaque, ut molestias! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam aperiam quia, voluptatum sunt esse repudiandae cumque obcaecati iusto nihil. Possimus architecto dolorum consequatur corporis modi vero dolores itaque, ut molestias!</p>
+                        <h3 class="portfolio_title">Dashboard  <a href="https://github.com/jaikishanpatil/Reward-System-For-Google-Classroom" target="_blank" rel="noopener noreferrer"><i class="uil uil-link" title="Click me"></i></a></h3>
+                        <!-- <h6 class="portfolio_sub_title">Modern Website</h6> -->
+                        <h6 class="portfolio_sub_title"><strong>Technology: </strong>Angular, TypeScript, NodeJs, MySQL</h6>
+                        <p class="portfolio_description"><strong>Description: </strong>Dashboard user interfaces (UIs) are pivotal tools in modern software. They transform complex data into clear visual insights, providing an intuitive and efficient user experience. Dashboards offer centralized access, customization, and real-time updates, making them indispensable for monitoring performance, facilitating team collaboration, and aligning with organizational goals. In essence, dashboard UI development empowers informed decision-making and data-driven success.</p>
                         <!-- <a href="#" class="button button--flex button--small portfolio_button">
                             Demo
                             <i class="uil uil-arrow-right button_icon"></i>
@@ -396,12 +398,43 @@
                 </div>
                 <!-- Portfolio 3 -->
                 <div class="portfolio_content grid swiper-slide">
-                    <img src="../../../../../assets/images/portfolio3.jpg" alt="" class="portfolio_img">
+                    <img src="../../../../../assets/images/noPhoto.png" alt="" class="portfolio_img">
 
                     <div class="portfolio_data">
-                        <h3 class="portfolio_title">Modern Website</h3>
-                        <h6 class="portfolio_sub_title">Modern Website</h6>
-                        <p class="portfolio_description"> <strong>Description: </strong> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam aperiam quia, voluptatum sunt esse repudiandae cumque obcaecati iusto nihil.</p>
+                        <h3 class="portfolio_title">My Portfolio  <a href="https://github.com/jaikishanpatil/Reward-System-For-Google-Classroom" target="_blank" rel="noopener noreferrer"><i class="uil uil-link" title="Click me"></i></a></h3>
+                        <!-- <h6 class="portfolio_sub_title">Modern Website</h6> -->
+                        <h6 class="portfolio_sub_title"><strong>Technology: </strong>Angular, TypeScript, NodeJs, MySQL</h6>
+                        <p class="portfolio_description"> <strong>Description: </strong> "My Portfolio" website is a way to showcase my skills, projects, and achievements to the world. It serves as a digital representation of my professional identity, providing a platform to highlight my expertise, experiences, and talents. This website is not just an online resume; it's a dynamic tool that enables me to demonstrate my capabilities, connect with potential collaborators, and leave a lasting impression on visitors.</p>
+                        <!-- <a href="#" class="button button--flex button--small portfolio_button">
+                            Demo
+                            <i class="uil uil-arrow-right button_icon"></i>
+                        </a> -->
+                    </div>
+                </div>
+                <!-- Portfolio 4 -->
+                <div class="portfolio_content grid swiper-slide">
+                    <img src="../../../../../assets/images/noPhoto.png" alt="" class="portfolio_img">
+
+                    <div class="portfolio_data">
+                        <h3 class="portfolio_title">Employee Management System  <a href="https://github.com/jaikishanpatil/Employee-Management-System" target="_blank" rel="noopener noreferrer"><i class="uil uil-link" title="Click me"></i></a></h3>
+                        <!-- <h6 class="portfolio_sub_title">Modern Website</h6> -->
+                        <h6 class="portfolio_sub_title"><strong>Technology: </strong>Java, MySQL</h6>
+                        <p class="portfolio_description"> <strong>Description: </strong> The development of an Employee Management System is aimed at optimizing workforce operations within an organization. This comprehensive tool enhances efficiency by automating tasks such as attendance tracking, payroll management, and HR record-keeping. It simplifies communication between employees and management, facilitates performance evaluation, and ensures compliance with labor laws and company policies. </p>
+                        <!-- <a href="#" class="button button--flex button--small portfolio_button">
+                            Demo
+                            <i class="uil uil-arrow-right button_icon"></i>
+                        </a> -->
+                    </div>
+                </div>
+                <!-- Portfolio 5 -->
+                <div class="portfolio_content grid swiper-slide">
+                    <img src="../../../../../assets/images/noPhoto.png" alt="" class="portfolio_img">
+
+                    <div class="portfolio_data">
+                        <h3 class="portfolio_title">All Purpose API  <a href="https://github.com/jaikishanpatil/all-apis" target="_blank" rel="noopener noreferrer"><i class="uil uil-link" title="Click me"></i></a></h3>
+                        <!-- <h6 class="portfolio_sub_title">Modern Website</h6> -->
+                        <h6 class="portfolio_sub_title"><strong>Technology: </strong>NodeJs ,ExpressJS, MySQL</h6>
+                        <p class="portfolio_description"> <strong>Description: </strong>  I've crafted powerful interfaces that enable seamless communication between various software components. My APIs serve as the backbone of digital ecosystems, facilitating data exchange, integration, and automation. These meticulously designed interfaces enhance system interoperability, empowering businesses to unlock new capabilities, streamline processes, and drive innovation. Explore my API projects to witness firsthand how I've bridged the digital divide and enabled transformative connections in the digital landscape.</p>
                         <!-- <a href="#" class="button button--flex button--small portfolio_button">
                             Demo
                             <i class="uil uil-arrow-right button_icon"></i>
@@ -553,8 +586,8 @@
             <form [formGroup]="myForm" class="contact_form grid">
                 <div class="contact_inputs grid">
                     <div class="contact_content">
-                        <label for="" class="contact_label">Name <span class="invalid">*</span></label>
-                        <input [formControlName]="form_models.NAME" type="text" class="contact_input">
+                        <label for="name" class="contact_label">Name <span class="invalid">*</span></label>
+                        <input [formControlName]="form_models.NAME" type="text" id="name" autocomplete="on" class="contact_input">
                         <span *ngIf="name.invalid && (name.dirty || name.touched)">
                             <span class="invalid" *ngIf="name.errors.required">
                                 Name is required
@@ -568,8 +601,8 @@
                         </span>
                     </div>
                     <div class="contact_content">
-                        <label for="" class="contact_label">Email <span class="invalid">*</span></label>
-                        <input [formControlName]="form_models.EMAIL" type="email" class="contact_input">
+                        <label for="email" class="contact_label">Email <span class="invalid">*</span></label>
+                        <input [formControlName]="form_models.EMAIL" type="email" id="email" class="contact_input" autocomplete="on">
                         <span *ngIf="email.invalid && (email.dirty || email.touched)">
                             <span class="invalid" *ngIf="email.errors.required">
                                 Email is required
@@ -581,12 +614,12 @@
                     </div>
                 </div>
                 <div class="contact_content">
-                    <label for="" class="contact_label">Project</label>
-                    <input [formControlName]="form_models.PROJECT" type="text" class="contact_input">
+                    <label for="Project" class="contact_label">Project</label>
+                    <input [formControlName]="form_models.PROJECT" type="text" id="Project" class="contact_input">
                 </div>
                 <div class="contact_content">
-                    <label for="" class="contact_label">Message</label>
-                    <textarea [formControlName]="form_models.MESSAGE" class="contact_input"  name="" id="" cols="0" rows="7"></textarea>
+                    <label for="Message" class="contact_label">Message</label>
+                    <textarea [formControlName]="form_models.MESSAGE" class="contact_input"  name="" id="Message" cols="0" rows="7"></textarea>
                 </div>
 
                 <div>
@@ -621,16 +654,16 @@
                     </ul>
 
                     <div class="footer_socials">
-                        <a href="#" class="footer_social">
+                        <a href="https://www.instagram.com/jaikishan_patil/" target="_blank" class="footer_social">
                             <i class="uil uil-instagram"></i>
                         </a>
                         <a href="#" class="footer_social">
                             <i class="uil uil-facebook-f"></i>
                         </a>
-                        <a href="#" class="footer_social">
+                        <a href="https://github.com/jaikishanpatil" target="_blank" class="footer_social">
                             <i class="uil uil-github-alt"></i>
                         </a>
-                        <a href="#" class="footer_social">
+                        <a href="https://www.linkedin.com/in/jaikishan-patil-b858ab232" target="_blank" class="footer_social">
                             <i class="uil uil-linkedin-alt"></i>
                         </a>
                     </div>
