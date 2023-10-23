@@ -108,4 +108,31 @@ export class TestComponent implements OnInit {
     console.log(event)
   }
 
+  images=[
+    {
+      imageSrc:'https://www.kasandbox.org/programming-images/avatars/spunky-sam.png',
+      imageAlt:'test'
+    },
+    {
+      imageSrc:'https://www.kasandbox.org/programming-images/avatars/primosaur-ultimate.png',
+      imageAlt:'test'
+    },
+    {
+      imageSrc:'https://www.kasandbox.org/programming-images/avatars/purple-pi-pink.png',
+      imageAlt:'test'
+    },
+    {
+      imageSrc:'https://www.kasandbox.org/programming-images/avatars/purple-pi-teal.png',
+      imageAlt:'test'
+    },
+    {
+      imageSrc:'https://www.kasandbox.org/programming-images/avatars/purple-pi.png',
+      imageAlt:'test'
+    },
+    {
+      imageSrc:'https://www.kasandbox.org/programming-images/avatars/spunky-sam-green.png',
+      imageAlt:'test'
+    },
+  ]
+
 }
