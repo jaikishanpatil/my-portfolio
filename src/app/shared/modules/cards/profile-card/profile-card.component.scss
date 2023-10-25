@@ -1,0 +1,110 @@
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 24px;
+    background-color: #fff;
+    // cursor: pointer;
+    overflow: hidden;
+    max-width: clamp(320px, 70vw, 740px);
+    min-width: 320px;
+    min-height: 280px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 1px 4px;
+}
+
+.card:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.background {
+    flex: 1 1 250px;
+}
+
+.background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content {
+    flex: 3 1 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 16px;
+}
+
+.content>h2 {
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-weight: 700;
+    margin-bottom: clamp(0.35rem, 2vw, 0.55rem);
+}
+
+.content>p {
+    font-size: clamp(1rem, 1.75vw, 1.1rem);
+    font-weight: 400;
+    margin: 6px 0;
+}
+
+.content a {
+    color: #7370F4;
+}
+
+.chips {
+    display: flex;
+    gap: 12px;
+    cursor: pointer;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 12px 0px 16px 0px;
+}
+
+.chip {
+    border-radius: 12px;
+    padding: 10px;
+    font-size: 15px;
+    background-color: #EAEAEC;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.chip:hover {
+    background-color: #7370F4;
+    color: #EAEAEC;
+}
+
+.action-buttons {
+    border-top: 1px solid #EAEAEC;
+    padding-top: 16px;
+    gap: 12px;
+    display: flex;
+    margin-top: auto;
+    flex-wrap: wrap;
+}
+
+.action-buttons a {
+    background-color: #29283F;
+    color: #fff;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 12px;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    flex: 1 0 240px;
+    max-width: 100%;
+}
+
+.action-buttons a:hover {
+    text-decoration: underline;
+}
+
+.action-buttons a.secondary {
+    background-color: inherit;
+    color: #29283F;
+    border: 1px solid #29283F;
+    flex: 1 0 80px;
+}
