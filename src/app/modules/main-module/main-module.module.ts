@@ -11,6 +11,7 @@ import { NotFoundModule } from './sub-pages/not-found/not-found.module';
 import { FooterModule } from './sub-pages/footer/footer.module';
 import { TestComponent } from './sub-pages/test/test.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [MainComponent, TestComponent],
@@ -23,7 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NotFoundModule,
     FooterModule,
     ReactiveFormsModule,
-  ],
+    SharedModule],
   providers:[
     DatePipe
   ]
