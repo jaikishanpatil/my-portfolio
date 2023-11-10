@@ -135,4 +135,7 @@ export class TestComponent implements OnInit {
     },
   ]
 
+  book(event:any){
+    console.log(event);
+  }
 }
