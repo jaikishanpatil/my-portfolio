@@ -191,5 +191,19 @@ export class MainComponent implements OnInit {
   locate(){
     window.open("https://maps.app.goo.gl/jL2iGSdu7xqEuAPE9", "_blank");
   }
+  images=[
+    {
+      imageSrc:'../../../../../assets/images/noPhoto.png',
+      imageAlt:'test'
+    },
+    {
+      imageSrc:'../../../../../assets/images/code.jpg',
+      imageAlt:'test'
+    },
+    {
+      imageSrc:'../../../../../assets/images/lapcode.jpg',
+      imageAlt:'test'
+    },
+  ]
 }
   

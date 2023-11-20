@@ -428,8 +428,10 @@
                 </div>
                 <!-- Portfolio 5 -->
                 <div class="portfolio_content grid swiper-slide">
-                    <img src="../../../../../assets/images/noPhoto.png" alt="" class="portfolio_img">
-
+                    <!-- <img src="../../../../../assets/images/noPhoto.png" alt="" class="portfolio_img"> -->
+                    <div>
+                        <dynamic-carousel [images]="images" [controls]="false" [autoSlide]="true"></dynamic-carousel>
+                    </div>
                     <div class="portfolio_data">
                         <h3 class="portfolio_title">All Purpose API  <a href="https://github.com/jaikishanpatil/all-apis" target="_blank" rel="noopener noreferrer"><i class="uil uil-link" title="Click me"></i></a></h3>
                         <!-- <h6 class="portfolio_sub_title">Modern Website</h6> -->

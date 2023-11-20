@@ -2,38 +2,44 @@
     position: relative;
     margin: auto;
     text-align: center;
-    width: 700px;
+    width: 320px;
     border-radius: 15px;
-    box-shadow: 0 8px 16px #dce1e1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // box-shadow: 0 8px 16px #dce1e1;
 }
 
 .carousel-container img {
     display: none;
     border-radius: 15px;
+    position: absolute;
+    object-fit: fill;
 }
 
 
 .carousel-container img.image-active {
     display: block;
     width: 100%;
-    height: 400px;
+    height: auto;
 }
 
 .carousel-dot-container {
     position: absolute;
     right: 0;
     left: 0;
-    bottom: 0;
+    bottom: -165px;
     display: flex;
     padding: 0;
     justify-content: center;
     margin-bottom: 1rem;
+    align-items: flex-end;
 }
 
 .dot {
     cursor: pointer;
-    height: 13px;
-    width: 13px;
+    height: 9px;
+    width: 9px;
     margin: 0 5px;
     background-color: #ccc;
     border-radius: 50%;
