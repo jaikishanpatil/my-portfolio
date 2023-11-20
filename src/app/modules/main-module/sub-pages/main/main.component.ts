@@ -175,5 +175,21 @@ export class MainComponent implements OnInit {
   serviceClose(i:any){
     this.serviceIndex=i;
   }
+  sendMail(){
+      let mail ='patiljaikishan4@gmail.com';
+      let a = document.createElement('a');
+      a.href='mailto:'+mail;
+      a.click();
+  }
+  makeCall(){
+    let number = 8788642935;
+    let a =document.createElement('a');
+    a.href ='tel:'+number;
+    a.click();
+  }
+
+  locate(){
+    window.open("https://maps.app.goo.gl/jL2iGSdu7xqEuAPE9", "_blank");
+  }
 }
   

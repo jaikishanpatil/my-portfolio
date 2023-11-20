@@ -470,13 +470,13 @@
     </section>
 
     <!-- testimonials -->
-    <section class="testimonials section">
+    <!-- <section class="testimonials section">
         <h2 class="section_title">Testimonials</h2>
         <span class="section_subtitle">My Client saying</span>
 
         <div class="testimonials_container container swiper-container">
             <div class="swiper-wrapper">
-                 <!-- testimonial 1 -->
+                 testimonial 1
                  <div class="testimonial_content swiper-slide">
                     <div class="testimonial_data">
                         <div class="testimonial_header">
@@ -499,7 +499,7 @@
 
                     <p class="testimonial_description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam voluptatibus quidem velit doloremque!</p>
                  </div>
-                 <!-- testimonial 2 -->
+                 testimonial 2
                  <div class="testimonial_content swiper-slide">
                     <div class="testimonial_data">
                         <div class="testimonial_header">
@@ -522,7 +522,7 @@
 
                     <p class="testimonial_description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam voluptatibus quidem velit doloremque!</p>
                  </div>
-                 <!-- testimonial 3 -->
+                 testimonial 3
                  <div class="testimonial_content swiper-slide">
                     <div class="testimonial_data">
                         <div class="testimonial_header">
@@ -549,7 +549,7 @@
             </div>
             <div class="swiper-pagination swipwe-pagination-testimonials"></div>
         </div>
-    </section>
+    </section> -->
 
     <!-- contact me section -->
     <section class="contact section" id="contact">
@@ -563,7 +563,7 @@
 
                     <div>
                         <h3 class="contact_title">Call Me</h3>
-                        <span class="contact_subtitle">878-864-2935</span>
+                        <span class="contact_subtitle" (click)="makeCall()">878-864-2935</span>
                     </div>
                 </div>
                 <div class="contact_information">
@@ -571,7 +571,7 @@
 
                     <div>
                         <h3 class="contact_title">Email</h3>
-                        <span class="contact_subtitle">patiljaikishan4@gmail.com</span>
+                        <span class="contact_subtitle" (click)="sendMail()">patiljaikishan4@gmail.com</span>
                     </div>
                 </div>
                 <div class="contact_information">
@@ -579,7 +579,7 @@
 
                     <div>
                         <h3 class="contact_title">Location</h3>
-                        <span class="contact_subtitle">Waredi, Pen 402107</span>
+                        <span class="contact_subtitle" (click)="locate()">Waredi, Pen 402107</span>
                     </div>
                 </div>
             </div>
