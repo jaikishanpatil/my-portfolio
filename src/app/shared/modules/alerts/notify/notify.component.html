@@ -1,0 +1,59 @@
+<div class="alert-notification" [@enterLeave]="item.state" (click)="onClick($event)" [class]="theClass" [ngClass]="{
+        alert: item.type === 'alert',
+        error: item.type === 'error',
+        warn: item.type === 'warn',
+        success: item.type === 'success',
+        info: item.type === 'info',
+        bare: item.type === 'bare',
+        'rtl-mode': rtl,
+        'has-icon': item.icon !== 'bare'
+    }" (mouseenter)="onEnter()" (mouseleave)="onLeave()">
+    <div class="alert-notifications-content">
+        <ng-container *ngIf="!item.html; else elseTemplate">
+            <div class="icon" *ngIf="item.icon !== 'bare'" [innerHTML]="safeSvg"></div>
+
+            <div class="sn-title" *ngIf="titleIsTemplate; else regularTitle">
+                <ng-container *ngTemplateOutlet="title; context: item.context"></ng-container>
+            </div>
+            <ng-template #regularTitle>
+                <div class="sn-title" [innerHTML]="item.title"></div>
+            </ng-template>
+
+            <div class="sn-content" *ngIf="contentIsTemplate; else regularContent">
+                <ng-container *ngTemplateOutlet="content; context: item.context"></ng-container>
+            </div>
+
+            <ng-template #regularContent>
+                <div class="sn-content" [innerHTML]="item.content"></div>
+            </ng-template>
+
+            <div class="close-icon" (click)="onClickIcon($event)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 18 18">
+                    <path
+                        d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"
+                        fill="#8D8D8D" />
+                </svg>
+            </div>
+        </ng-container>
+        <ng-template #elseTemplate>
+            <div class="icon" [class.icon-hover]="clickIconToClose" *ngIf="item.icon" [innerHTML]="safeSvg"></div>
+            <div class="sn-html" *ngIf="htmlIsTemplate; else regularHtml">
+                <ng-container *ngTemplateOutlet="item.html; context: item.context"></ng-container>
+            </div>
+
+            <ng-template #regularHtml>
+                <div class="sn-content" [innerHTML]="safeInputHtml"></div>
+            </ng-template>
+            <div class="close-icon" title="close" (click)="onClickIcon($event)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                    <path
+                        d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />
+                </svg>
+            </div>
+        </ng-template>
+    </div>
+
+    <div class="sn-progress-loader" *ngIf="showProgressBar">
+        <span [ngStyle]="{ width: progressWidth + '%' }"></span>
+    </div>
+</div>

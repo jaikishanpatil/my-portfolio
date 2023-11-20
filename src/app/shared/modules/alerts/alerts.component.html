@@ -1,0 +1,7 @@
+<div class="alert-notification-wrapper" [ngClass]="position">
+    <lib-notify *ngFor="let a of notifications; let i = index" [item]="a" [timeOut]="timeOut"
+        [clickToClose]="clickToClose" [clickIconToClose]="clickIconToClose" [maxLength]="maxLength"
+        [showProgressBar]="showProgressBar" [pauseOnHover]="pauseOnHover" [theClass]="theClass" [rtl]="rtl"
+        [animate]="animate" [position]="i">
+    </lib-notify>
+</div>

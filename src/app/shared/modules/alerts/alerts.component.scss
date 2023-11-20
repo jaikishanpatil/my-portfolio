@@ -1,0 +1,43 @@
+.alert-notification-wrapper {
+    position: fixed;
+    width: 300px;
+    z-index: 1052;
+}
+
+.alert-notification-wrapper.left {
+    left: 20px;
+}
+
+.alert-notification-wrapper.top {
+    top: 20px;
+}
+
+.alert-notification-wrapper.right {
+    right: 20px;
+}
+
+.alert-notification-wrapper.bottom {
+    bottom: 20px;
+}
+
+.alert-notification-wrapper.center {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.alert-notification-wrapper.middle {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.alert-notification-wrapper.middle.center {
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 340px) {
+    .alert-notification-wrapper {
+        width: auto;
+        left: 20px;
+        right: 20px;
+    }
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { AlertService } from 'src/app/shared/modules/alerts/alert.service';
 
 @Component({
   selector: 'app-test',
@@ -7,7 +8,7 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
-  constructor() { }
+  constructor(private alertService:AlertService) { }
   text: string = '';
   columns: any | undefined;
   data: any[] = [];
@@ -137,5 +138,8 @@ export class TestComponent implements OnInit {
 
   book(event:any){
     console.log(event);
+  }
+  click(){
+    this.alertService.warn("Functionility unimplimented")
   }
 }

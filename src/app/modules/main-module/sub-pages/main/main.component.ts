@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FORM_MODEL } from '../model/form-base.enum';
 import { MainService } from '../../main.service';
+import { AlertService } from 'src/app/shared/modules/alerts/alert.service';
 
 declare function portfolioSwiper(): void;
 declare function testimonialSwiper(): void;
@@ -11,7 +12,11 @@ declare function testimonialSwiper(): void;
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-  constructor(private readonly formbuilder: FormBuilder , private readonly _mainService : MainService) {}
+  constructor(
+    private readonly formbuilder: FormBuilder, 
+    private readonly _mainService : MainService,
+    private readonly _alertService: AlertService
+    ) {}
   // var for data
   headerData:any 
   mainData:any
@@ -132,13 +137,13 @@ export class MainComponent implements OnInit {
 
   submitForm() {
     if (this.myForm.valid) {
+      this._alertService.warn("Functionality Not Implemented");
       let form = this.myForm;
       console.log(form.value)
       this.name.reset();
       this.email.reset();
       this.project.reset();
       this.message.reset();
-      
     }
   }
 
