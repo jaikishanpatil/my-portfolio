@@ -2,7 +2,8 @@
     position: relative;
     margin: auto;
     text-align: center;
-    width: 320px;
+    width: 310px;
+    height: 250px;
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -13,7 +14,7 @@
 .carousel-container img {
     display: none;
     border-radius: 15px;
-    position: absolute;
+    // position: absolute;
     object-fit: fill;
 }
 
@@ -28,7 +29,7 @@
     position: absolute;
     right: 0;
     left: 0;
-    bottom: -165px;
+    bottom: -35px;
     display: flex;
     padding: 0;
     justify-content: center;
