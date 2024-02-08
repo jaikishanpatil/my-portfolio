@@ -137,13 +137,15 @@ export class MainComponent implements OnInit {
 
   submitForm() {
     if (this.myForm.valid) {
-      this._alertService.warn("Functionality Not Implemented");
+      this._alertService.info("Functionality Not Implemented");
       let form = this.myForm;
       console.log(form.value)
       this.name.reset();
       this.email.reset();
       this.project.reset();
       this.message.reset();
+    }else{
+      this._alertService.warn("Please fill all required data");
     }
   }
 
