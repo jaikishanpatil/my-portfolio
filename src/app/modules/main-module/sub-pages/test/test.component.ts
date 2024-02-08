@@ -1,5 +1,7 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { AlertService } from 'src/app/shared/modules/alerts/alert.service';
+import {AngularFireStorage} from '@angular/fire/compat/storage'
 
 @Component({
   selector: 'app-test',
@@ -8,11 +10,12 @@ import { AlertService } from 'src/app/shared/modules/alerts/alert.service';
 })
 export class TestComponent implements OnInit {
 
-  constructor(private alertService:AlertService) { }
+  constructor(private alertService:AlertService,private http: HttpClient,private firebaseStorage:AngularFireStorage) { }
   text: string = '';
   columns: any | undefined;
   data: any[] = [];
   searchData:any
+  selectedFile: File| null=null;
 
   @ViewChild('nameColumnTemplate',{static:true}) nameColumnTemplate: TemplateRef<any> | any;
   @ViewChild('emailColumnTemplate',{static:true}) emailColumnTemplate: TemplateRef<any> | any;
@@ -141,5 +144,49 @@ export class TestComponent implements OnInit {
   }
   click(){
     this.alertService.warn("Functionility unimplimented")
+  }
+
+  // only for angular
+
+  async onSelectFile(event:any){
+    const file = event.target.files[0];
+    if(file){
+      const path = `test/${file.name}_${new Date().getTime()}`
+      const uploadTask = await this.firebaseStorage.upload(path,file);
+      const url = await uploadTask.ref.getDownloadURL();
+      console.log("url =>",url)
+    }
+  }
+
+
+  // this is for angular to node 
+  onFileChange(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+  upload() {
+    if (!this.selectedFile) {
+      this.alertService.warn("Please select the file first")
+      return;
+    }
+    let formData = new FormData();
+    formData.append('productImage', this.selectedFile,this.selectedFile.name);
+    let body={
+      "productName":"MI K51 max",
+      "productDescription":" Hardcoded Mobiles",
+      "productPrice":"11000",
+      "productCategory":"Mobiles",
+      "productQuantity":22,
+      "image":formData
+    }
+    const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTcwNzMxMDQyOCwiZXhwIjoxNzA3MzEyMjI4fQ.LVapWRZ6esZzcTHrzsIZmJM9g_NbmY18b2UV4lnNPrY';
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${authToken}`);
+    this.http.post('http://localhost:8000/api/product/create', body,{headers}).subscribe(
+      (response) => {
+        console.log('Image uploaded successfully:', response);
+      },
+      (error) => {
+        console.error('Error uploading image:', error);
+      }
+    );
   }
 }

@@ -38,3 +38,13 @@
 <br>
 <br>
 <button mat-raised-button color="primary" (click)="click()">Click me</button>
+
+
+<input type="file" (change)="onFileChange($event)" />
+<button (click)="upload()">Upload</button>
+
+<br>
+<br>
+<br>
+
+<input type="file" accept="image/*" (change)="onSelectFile($event)" />
