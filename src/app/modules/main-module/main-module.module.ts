@@ -14,7 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { environment } from 'src/environments/environment';
+import { environment} from 'src/environments/environment.prod';
 
 @NgModule({
   declarations: [MainComponent, TestComponent],
