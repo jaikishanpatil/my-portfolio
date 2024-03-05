@@ -15,7 +15,7 @@ export class TestComponent implements OnInit {
   columns: any | undefined;
   data: any[] = [];
   searchData:any
-  selectedFile: File| null=null;
+  selectedFile: File|any;
 
   @ViewChild('nameColumnTemplate',{static:true}) nameColumnTemplate: TemplateRef<any> | any;
   @ViewChild('emailColumnTemplate',{static:true}) emailColumnTemplate: TemplateRef<any> | any;
@@ -163,6 +163,9 @@ export class TestComponent implements OnInit {
   onFileChange(event: any) {
     this.selectedFile = event.target.files[0];
   }
+  onFileChangeMultiple(event: any) {
+    this.selectedFile = event.target.files;
+  }
   upload() {
     if (!this.selectedFile) {
       this.alertService.warn("Please select the file first")
@@ -181,6 +184,42 @@ export class TestComponent implements OnInit {
     const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTcwNzMxMDQyOCwiZXhwIjoxNzA3MzEyMjI4fQ.LVapWRZ6esZzcTHrzsIZmJM9g_NbmY18b2UV4lnNPrY';
     const headers = new HttpHeaders().set('Authorization', `Bearer ${authToken}`);
     this.http.post('http://localhost:8000/api/product/create', body,{headers}).subscribe(
+      (response) => {
+        console.log('Image uploaded successfully:', response);
+      },
+      (error) => {
+        console.error('Error uploading image:', error);
+      }
+    );
+  }
+
+// upload files to nodejs using apis
+  async uploadImages(){
+    const formData= new FormData()
+    formData.append('file',this.selectedFile)
+    formData.append('name',"Myfile")
+    console.log(await formData.get("file"))
+    const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImlhdCI6MTcwOTYyNjI1NywiZXhwIjoxNzA5NjI4MDU3fQ.BMgrfr2iXt2mNKzGQzjQA_hp2noc2AEIzChI_4wP9jY"
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${authToken}`);
+    this.http.post('http://localhost:8000/api/product/uploadImage', formData,{headers}).subscribe(
+      (response) => {
+        console.log('Image uploaded successfully:', response);
+      },
+      (error) => {
+        console.error('Error uploading image:', error);
+      }
+    );
+  }
+  async uploadImagesMultiple(){
+    const formData= new FormData()
+    for(let img of this.selectedFile){
+      formData.append('files',img)
+      console.log(await formData.get("files"))
+    }
+    formData.append('name',"Myfile")
+    const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImlhdCI6MTcwOTYyNjI1NywiZXhwIjoxNzA5NjI4MDU3fQ.BMgrfr2iXt2mNKzGQzjQA_hp2noc2AEIzChI_4wP9jY"
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${authToken}`);
+    this.http.post('http://localhost:8000/api/product/uploadImageMulti', formData,{headers}).subscribe(
       (response) => {
         console.log('Image uploaded successfully:', response);
       },
