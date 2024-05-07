@@ -13,7 +13,5 @@ export class MainService {
     return this.httpService.get<Observable<any>>("./assets/jaikishan_data.json").pipe(
       map(data=>data)
     )
-
-    
   }
 }
