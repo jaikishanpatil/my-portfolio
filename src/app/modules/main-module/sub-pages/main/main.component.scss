@@ -254,6 +254,9 @@
   overflow: auto !important;
   transition: 0.4s;
 }
+.skills_data{
+  margin-right: 0.2rem;
+}
 
 .skills_close .skills_list {
   height: 0;
@@ -574,6 +577,7 @@
 .contact_subtitle {
   font-size: var(--small-font-size);
   color: var(--text-color);
+  cursor: pointer;
 }
 .contact_content {
   background-color: var(--input-color);

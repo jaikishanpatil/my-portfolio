@@ -34,6 +34,30 @@
 <br>
 <br>
 <h1>Profile card Test</h1>
-<profile-card></profile-card>
+<profile-card (bookMe)="book($event)"></profile-card>
 <br>
 <br>
+<button mat-raised-button color="primary" (click)="click()">Click me</button>
+
+
+<input type="file" (change)="onFileChange($event)" />
+<button (click)="upload()">Upload</button>
+
+<br>
+<br>
+<br>
+<!-- to upload imaege in firebae -->
+<input type="file" accept="image/*" (change)="onSelectFile($event)" />
+<br>
+<br>
+<br>
+<div>
+<h1>Image upload to cloudinary from NodeJs api</h1>
+<input type="file" accept="image/*" name="" id="" (change)="onFileChange($event)">
+<button (click)="uploadImages()">Upload</button>
+<br>
+<br>
+<br>
+<input type="file" accept="image/*" multiple name="" id="" (change)="onFileChangeMultiple($event)">
+<button (click)="uploadImagesMultiple()">Upload multiple</button>
+</div>
